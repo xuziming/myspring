@@ -124,7 +124,6 @@ public class CastorMarshallerTests extends AbstractMarshallerTests<CastorMarshal
 		return flights;
 	}
 
-
 	@Test
 	public void marshalSaxResult() throws Exception {
 		ContentHandler contentHandler = mock(ContentHandler.class);
