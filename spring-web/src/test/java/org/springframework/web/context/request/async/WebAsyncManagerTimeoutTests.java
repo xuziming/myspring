@@ -45,6 +45,7 @@ import static org.springframework.web.context.request.async.CallableProcessingIn
  *
  * @author Rossen Stoyanchev
  */
+@SuppressWarnings("rawtypes")
 public class WebAsyncManagerTimeoutTests {
 
 	private static final AsyncEvent ASYNC_EVENT = null;

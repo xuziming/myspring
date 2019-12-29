@@ -64,10 +64,10 @@ import static org.mockito.BDDMockito.*;
  * @deprecated as of Spring 4.3, in favor of Hibernate 4.x/5.x
  */
 @Deprecated
+@SuppressWarnings({"unchecked", "rawtypes"})
 public class LocalSessionFactoryBeanTests {
 
 	@Test
-	
 	public void testLocalSessionFactoryBeanWithDataSource() throws Exception {
 		final DriverManagerDataSource ds = new DriverManagerDataSource();
 		final List invocations = new ArrayList();

@@ -27,6 +27,7 @@ import static org.junit.Assert.*;
  * @author Juergen Hoeller
  * @author Stephane Nicoll
  */
+@SuppressWarnings("deprecation")
 public class DefaultKeyGeneratorTests {
 
 	private final DefaultKeyGenerator generator = new DefaultKeyGenerator();

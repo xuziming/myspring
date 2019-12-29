@@ -33,6 +33,7 @@ import static org.junit.Assert.*;
  * @author Chris Beams
  * @since 2.0
  */
+@SuppressWarnings("resource")
 public final class AtAspectJAfterThrowingTests {
 
 	@Test

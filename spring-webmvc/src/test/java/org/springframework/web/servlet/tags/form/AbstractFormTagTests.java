@@ -38,6 +38,7 @@ public abstract class AbstractFormTagTests extends AbstractHtmlElementTagTests {
 
 	protected abstract TestBean createTestBean();
 
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void extendPageContext(MockPageContext pageContext) throws JspException {
 		this.formTag.setCommandName(COMMAND_NAME);

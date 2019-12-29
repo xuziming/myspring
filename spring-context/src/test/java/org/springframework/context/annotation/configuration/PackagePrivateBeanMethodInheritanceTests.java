@@ -42,6 +42,7 @@ public class PackagePrivateBeanMethodInheritanceTests {
 		Foo foo2 = ctx.getBean("foo2", Foo.class);
 		ctx.getBean("packagePrivateBar", Bar.class); // <-- i.e. @Bean was registered
 		assertThat(foo1.bar, not(is(foo2.bar)));     // <-- i.e. @Bean *not* enhanced
+		ctx.close();
 	}
 
 	@Test
@@ -53,6 +54,7 @@ public class PackagePrivateBeanMethodInheritanceTests {
 		Foo foo2 = ctx.getBean("foo2", Foo.class);
 		ctx.getBean("protectedBar", Bar.class); // <-- i.e. @Bean was registered
 		assertThat(foo1.bar, is(foo2.bar));     // <-- i.e. @Bean *was* enhanced
+		ctx.close();
 	}
 
 	public static class Foo {
@@ -62,8 +64,7 @@ public class PackagePrivateBeanMethodInheritanceTests {
 		}
 	}
 
-	public static class Bar {
-	}
+	public static class Bar {}
 
 	@Configuration
 	public static class ReproConfig extends org.springframework.context.annotation.configuration.a.BaseConfig {

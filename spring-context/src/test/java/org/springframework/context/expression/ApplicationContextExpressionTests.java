@@ -63,6 +63,7 @@ import static org.junit.Assert.*;
  * @author Juergen Hoeller
  * @since 3.0
  */
+@SuppressWarnings("resource")
 public class ApplicationContextExpressionTests {
 
 	private static final Log factoryLog = LogFactory.getLog(DefaultListableBeanFactory.class);

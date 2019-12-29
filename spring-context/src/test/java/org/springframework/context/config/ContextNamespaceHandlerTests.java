@@ -39,6 +39,7 @@ import static org.junit.Assert.*;
  * @author Juergen Hoeller
  * @since 2.5.6
  */
+@SuppressWarnings({ "resource" })
 public class ContextNamespaceHandlerTests {
 
 	@After

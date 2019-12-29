@@ -1338,11 +1338,13 @@ public class BridgeMethodResolverTests {
 
 	public static abstract class BaseEntity {
 
+		@SuppressWarnings("unused")
 		private String id;
 	}
 
 	public static class FooEntity extends BaseEntity {
 
+		@SuppressWarnings("unused")
 		private String name;
 	}
 

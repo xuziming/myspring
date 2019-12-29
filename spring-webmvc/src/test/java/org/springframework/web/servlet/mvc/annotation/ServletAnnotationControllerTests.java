@@ -405,6 +405,7 @@ public class ServletAnnotationControllerTests {
 		assertEquals("", response.getContentAsString());
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void sessionAttributeExposure() throws Exception {
 		 DispatcherServlet servlet = new DispatcherServlet() {
@@ -440,6 +441,7 @@ public class ServletAnnotationControllerTests {
 		assertTrue(((Map) session.getAttribute("model")).containsKey("object2"));
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void sessionAttributeExposureWithInterface() throws Exception {
 		 DispatcherServlet servlet = new DispatcherServlet() {
@@ -479,6 +481,7 @@ public class ServletAnnotationControllerTests {
 		assertTrue(((Map) session.getAttribute("model")).containsKey("object2"));
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void parameterizedAnnotatedInterface() throws Exception {
 		 DispatcherServlet servlet = new DispatcherServlet() {
@@ -516,6 +519,7 @@ public class ServletAnnotationControllerTests {
 		assertTrue(((Map) session.getAttribute("model")).containsKey("testBeanList"));
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void parameterizedAnnotatedInterfaceWithOverriddenMappingsInImpl() throws Exception {
 		 DispatcherServlet servlet = new DispatcherServlet() {
@@ -1333,6 +1337,7 @@ public class ServletAnnotationControllerTests {
 	@Test
 	public void overlappingMesssageConvertersRequestBody() throws ServletException, IOException {
 		 DispatcherServlet servlet = new DispatcherServlet() {
+			@SuppressWarnings("rawtypes")
 			@Override
 			protected WebApplicationContext createWebApplicationContext(WebApplicationContext parent) {
 				GenericWebApplicationContext wac = new GenericWebApplicationContext();
@@ -2383,6 +2388,7 @@ public class ServletAnnotationControllerTests {
 			return "myView";
 		}
 
+		@SuppressWarnings("unchecked")
 		@ModelAttribute
 		protected TB2 getModelAttr() {
 			return (TB2) new DerivedTestBean();
@@ -2406,6 +2412,7 @@ public class ServletAnnotationControllerTests {
 	public @interface MyValid {
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Controller
 	private static class MyBinderInitializingCommandProvidingFormController extends MyCommandProvidingFormController {
 
@@ -2431,6 +2438,7 @@ public class ServletAnnotationControllerTests {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Controller
 	private static class MySpecificBinderInitializingCommandProvidingFormController
 			extends MyCommandProvidingFormController {
@@ -2655,7 +2663,7 @@ public class ServletAnnotationControllerTests {
 				}
 
 				@Override
-				@SuppressWarnings({"unchecked", "deprecation"})
+				@SuppressWarnings({"unchecked", "rawtypes"})
 				public void render(Map model, HttpServletRequest request, HttpServletResponse response)
 						throws Exception {
 					TestBean tb = (TestBean) model.get("testBean");
@@ -2787,6 +2795,7 @@ public class ServletAnnotationControllerTests {
 	@Controller
 	public static class NestedSetController {
 
+		@SuppressWarnings("rawtypes")
 		@RequestMapping("/myPath.do")
 		public void myHandle(GenericBean gb, HttpServletResponse response) throws Exception {
 			response.getWriter().write(gb.getTestBeanSet().toString() + "-" +
@@ -2881,11 +2890,9 @@ public class ServletAnnotationControllerTests {
 	}
 
 	@XmlRootElement
-	public static class B {
+	public static class B {}
 
-	}
-
-
+	@SuppressWarnings("rawtypes")
 	public static class NotReadableMessageConverter implements HttpMessageConverter {
 
 		@Override
@@ -2916,6 +2923,7 @@ public class ServletAnnotationControllerTests {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static class SimpleMessageConverter implements HttpMessageConverter {
 
 		private final List<MediaType> supportedMediaTypes;
@@ -3017,6 +3025,7 @@ public class ServletAnnotationControllerTests {
 
 	public static class MyModelAndViewResolver implements ModelAndViewResolver {
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public ModelAndView resolveModelAndView(Method handlerMethod,
 				Class handlerType,
@@ -3254,6 +3263,7 @@ public class ServletAnnotationControllerTests {
 			binder.registerCustomEditor(Map.class, new CustomMapEditor());
 		}
 
+		@SuppressWarnings("rawtypes")
 		@RequestMapping("/handle")
 		public void handle(@RequestParam("map") Map map, Writer writer) throws IOException {
 			writer.write("test-" + map);

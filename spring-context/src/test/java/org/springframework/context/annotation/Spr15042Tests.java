@@ -24,6 +24,7 @@ import org.springframework.aop.target.CommonsPool2TargetSource;
 /**
  * @author Juergen Hoeller
  */
+@SuppressWarnings("resource")
 public class Spr15042Tests {
 
 	@Test

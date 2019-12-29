@@ -39,6 +39,7 @@ import static org.junit.Assert.*;
  * @author Dmitriy Kopylenko
  * @author Chris Beams
  */
+@SuppressWarnings("resource")
 public final class AdvisorAdapterRegistrationTests {
 
 	@Before

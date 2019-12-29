@@ -63,6 +63,7 @@ import static org.junit.Assert.*;
  */
 public class ValidatorFactoryTests {
 
+	@SuppressWarnings("cast")
 	@Test
 	public void testSimpleValidation() throws Exception {
 		LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
@@ -89,6 +90,7 @@ public class ValidatorFactoryTests {
 		validator.destroy();
 	}
 
+	@SuppressWarnings("cast")
 	@Test
 	public void testSimpleValidationWithCustomProvider() throws Exception {
 		LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();

@@ -65,6 +65,7 @@ import org.springframework.web.method.support.HandlerMethodArgumentResolver;
  * @author Juergen Hoeller
  * @since 3.1
  */
+@SuppressWarnings("rawtypes")
 public abstract class AbstractMessageConverterMethodArgumentResolver implements HandlerMethodArgumentResolver {
 
 	private static final Set<HttpMethod> SUPPORTED_METHODS =
@@ -343,6 +344,7 @@ public abstract class AbstractMessageConverterMethodArgumentResolver implements 
 			return this.body;
 		}
 
+		@SuppressWarnings("unused")
 		public HttpMethod getMethod() {
 			return this.method;
 		}

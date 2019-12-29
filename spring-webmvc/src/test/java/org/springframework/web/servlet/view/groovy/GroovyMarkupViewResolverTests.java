@@ -28,6 +28,7 @@ import org.springframework.beans.DirectFieldAccessor;
  *
  * @author Brian Clozel
  */
+@SuppressWarnings({ "rawtypes" })
 public class GroovyMarkupViewResolverTests {
 
 	@Test

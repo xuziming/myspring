@@ -52,7 +52,7 @@ import org.springframework.web.method.support.ModelAndViewContainer;
  * @author Rossen Stoyanchev
  * @since 4.2
  */
-@SuppressWarnings("deprecation")
+@SuppressWarnings({ "deprecation", "resource" })
 public class ResponseBodyEmitterReturnValueHandler implements AsyncHandlerMethodReturnValueHandler {
 
 	private static final Log logger = LogFactory.getLog(ResponseBodyEmitterReturnValueHandler.class);
@@ -107,6 +107,7 @@ public class ResponseBodyEmitterReturnValueHandler implements AsyncHandlerMethod
 		return (getAdapterFor(bodyType) != null);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public boolean isAsyncReturnValue(Object returnValue, MethodParameter returnType) {
 		if (returnValue != null) {

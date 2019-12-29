@@ -49,6 +49,7 @@ import static org.junit.Assert.*;
  * @author Rossen Stoyanchev
  * @since 4.1
  */
+@SuppressWarnings("deprecation")
 public class ViewResolutionIntegrationTests {
 
 	@Rule

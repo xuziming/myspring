@@ -38,6 +38,7 @@ import static org.junit.Assert.*;
  * @author Chris Beams
  * @since 3.1.1
  */
+@SuppressWarnings("resource")
 public class ConfigurationBeanNameTests {
 
 	@Test

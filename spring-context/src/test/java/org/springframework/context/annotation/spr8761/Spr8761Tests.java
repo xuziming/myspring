@@ -44,6 +44,7 @@ public class Spr8761Tests {
 		ctx.scan(getClass().getPackage().getName());
 		ctx.refresh();
 		assertThat(ctx.containsBean("withNestedAnnotation"), is(true));
+		ctx.close();
 	}
 
 }

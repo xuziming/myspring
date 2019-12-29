@@ -47,6 +47,7 @@ import static org.junit.Assert.*;
  * @author Juergen Hoeller
  * @author Stephane Nicoll
  */
+@SuppressWarnings({ "resource" })
 public class AsyncAnnotationBeanPostProcessorTests {
 
 	@Test

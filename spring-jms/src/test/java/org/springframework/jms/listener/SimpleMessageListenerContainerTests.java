@@ -43,6 +43,7 @@ import static org.mockito.BDDMockito.*;
  * @author Chris Beams
  * @author Mark Fisher
  */
+@SuppressWarnings("resource")
 public class SimpleMessageListenerContainerTests {
 
 	private static final String DESTINATION_NAME = "foo";

@@ -155,6 +155,7 @@ public class MarshallingView extends AbstractView {
 	 * @return whether the given value is to be considered as eligible
 	 * @see Marshaller#supports(Class)
 	 */
+	@SuppressWarnings("rawtypes")
 	protected boolean isEligibleForMarshalling(String modelKey, Object value) {
 		Class<?> classToCheck = value.getClass();
 		if (value instanceof JAXBElement) {

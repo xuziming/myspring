@@ -45,6 +45,7 @@ import org.springframework.scheduling.TaskScheduler;
  * User tests for {@link UserRegistryMessageHandler}.
  * @author Rossen Stoyanchev
  */
+@SuppressWarnings("rawtypes")
 public class UserRegistryMessageHandlerTests {
 
 	private UserRegistryMessageHandler handler;

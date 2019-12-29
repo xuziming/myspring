@@ -142,6 +142,7 @@ public class GenericApplicationListenerAdapterTests extends AbstractApplicationE
 		supportsEventType(true, RawApplicationListener.class, eventType);
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void supportsEventType(boolean match, Class<? extends ApplicationListener> listenerType,
 			ResolvableType eventType) {
 

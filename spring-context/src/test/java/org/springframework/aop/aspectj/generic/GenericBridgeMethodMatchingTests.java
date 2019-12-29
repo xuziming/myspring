@@ -56,6 +56,7 @@ public class GenericBridgeMethodMatchingTests {
 		counterAspect.count = 0;
 
 		testBean = (DerivedInterface<String>) ctx.getBean("testBean");
+		ctx.close();
 	}
 
 

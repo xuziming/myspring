@@ -47,6 +47,7 @@ public class Spr9031Tests {
 		ctx.register(HighLevelConfig.class);
 		ctx.refresh();
 		assertThat(ctx.getBean(LowLevelConfig.class).scanned, not(nullValue()));
+		ctx.close();
 	}
 
 	/**
@@ -59,6 +60,7 @@ public class Spr9031Tests {
 		ctx.register(LowLevelConfig.class);
 		ctx.refresh();
 		assertThat(ctx.getBean(LowLevelConfig.class).scanned, not(nullValue()));
+		ctx.close();
 	}
 
 	@Configuration

@@ -55,6 +55,7 @@ public class WebUtilsTests {
 		assertEquals("myValue4", WebUtils.findParameterValue(params, "myKey4"));
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void extractFilenameFromUrlPath() {
 		assertEquals("index", WebUtils.extractFilenameFromUrlPath("index.html"));
@@ -65,6 +66,7 @@ public class WebUtilsTests {
 		assertEquals("view", WebUtils.extractFilenameFromUrlPath("/products/view.html?param=/path/a.do"));
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void extractFullFilenameFromUrlPath() {
 		assertEquals("index.html", WebUtils.extractFullFilenameFromUrlPath("index.html"));

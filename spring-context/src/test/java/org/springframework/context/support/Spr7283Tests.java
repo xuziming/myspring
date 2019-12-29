@@ -35,6 +35,7 @@ public class Spr7283Tests {
 		assertEquals(2, list.size());
 		assertTrue(list.get(0) instanceof A);
 		assertTrue(list.get(1) instanceof B);
+		ctx.close();
 	}
 
 

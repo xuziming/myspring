@@ -35,6 +35,7 @@ import static org.junit.Assert.*;
  * @author Juergen Hoeller
  * @since 4.0
  */
+@SuppressWarnings("resource")
 public class LazyAutowiredAnnotationBeanPostProcessorTests {
 
 	private void doTestLazyResourceInjection(Class<? extends TestBeanHolder> annotatedBeanClass) {

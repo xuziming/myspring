@@ -23,6 +23,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 /**
  * @author Juergen Hoeller
  */
+@SuppressWarnings("resource")
 public class Spr16756Tests {
 
 	@Test

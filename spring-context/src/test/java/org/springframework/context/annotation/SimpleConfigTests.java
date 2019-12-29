@@ -51,6 +51,7 @@ public class SimpleConfigTests {
 
 		fooService.foo(1);
 		assertEquals(3, serviceInvocationCounter.getCount());
+		ctx.close();
 	}
 
 	public String[] getConfigLocations() {

@@ -153,28 +153,30 @@ public class HeaderMethodArgumentResolverTests {
 
 	@Test
 	public void resolveOptionalHeaderWithValue() throws Exception {
-		GenericApplicationContext cxt = new GenericApplicationContext();
-		cxt.refresh();
+		GenericApplicationContext ctx = new GenericApplicationContext();
+		ctx.refresh();
 
 		HeaderMethodArgumentResolver resolver =
-				new HeaderMethodArgumentResolver(new DefaultConversionService(), cxt.getBeanFactory());
+				new HeaderMethodArgumentResolver(new DefaultConversionService(), ctx.getBeanFactory());
 
 		Message<String> message = MessageBuilder.withPayload("foo").setHeader("foo", "bar").build();
 		Object result = resolver.resolveArgument(paramOptional, message);
 		assertEquals(Optional.of("bar"), result);
+		ctx.close();
 	}
 
 	@Test
 	public void resolveOptionalHeaderAsEmpty() throws Exception {
-		GenericApplicationContext cxt = new GenericApplicationContext();
-		cxt.refresh();
+		GenericApplicationContext ctx = new GenericApplicationContext();
+		ctx.refresh();
 
 		HeaderMethodArgumentResolver resolver =
-				new HeaderMethodArgumentResolver(new DefaultConversionService(), cxt.getBeanFactory());
+				new HeaderMethodArgumentResolver(new DefaultConversionService(), ctx.getBeanFactory());
 
 		Message<String> message = MessageBuilder.withPayload("foo").build();
 		Object result = resolver.resolveArgument(paramOptional, message);
 		assertEquals(Optional.empty(), result);
+		ctx.close();
 	}
 
 

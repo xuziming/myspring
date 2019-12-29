@@ -121,6 +121,7 @@ public class ServletModelAttributeMethodProcessorTests {
 
 		// Type conversion from "Patty" to TestBean via TestBean(String) constructor
 
+		@SuppressWarnings("unchecked")
 		Optional<TestBean> testBean =
 				(Optional<TestBean>) this.processor.resolveArgument(
 						this.testBeanWithOptionalModelAttr, this.mavContainer, this.webRequest, this.binderFactory);
@@ -156,6 +157,7 @@ public class ServletModelAttributeMethodProcessorTests {
 	public void createAttributeRequestParameterWithOptional() throws Exception {
 		this.request.addParameter("testBean3", "Patty");
 
+		@SuppressWarnings("unchecked")
 		Optional<TestBean> testBean =
 				(Optional<TestBean>) this.processor.resolveArgument(
 						this.testBeanWithOptionalModelAttr, this.mavContainer, this.webRequest, this.binderFactory);
@@ -177,6 +179,7 @@ public class ServletModelAttributeMethodProcessorTests {
 		assertNull(this.processor.resolveArgument(
 				this.testBeanWithoutStringConstructorModelAttr, this.mavContainer, this.webRequest, this.binderFactory));
 
+		@SuppressWarnings("unchecked")
 		Optional<TestBean> testBean =
 				(Optional<TestBean>) this.processor.resolveArgument(
 						this.testBeanWithOptionalModelAttr, this.mavContainer, this.webRequest, this.binderFactory);
@@ -197,6 +200,7 @@ public class ServletModelAttributeMethodProcessorTests {
 		assertNull(this.processor.resolveArgument(
 				this.testBeanWithoutStringConstructorModelAttr, this.mavContainer, this.webRequest, this.binderFactory));
 
+		@SuppressWarnings("unchecked")
 		Optional<TestBean> testBean =
 				(Optional<TestBean>) this.processor.resolveArgument(
 						this.testBeanWithOptionalModelAttr, this.mavContainer, this.webRequest, this.binderFactory);

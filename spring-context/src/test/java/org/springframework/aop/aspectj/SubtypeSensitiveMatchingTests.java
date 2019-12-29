@@ -46,6 +46,7 @@ public final class SubtypeSensitiveMatchingTests {
 		nonSerializableBean = (NonSerializableFoo) ctx.getBean("testClassA");
 		serializableBean = (SerializableFoo) ctx.getBean("testClassB");
 		bar = (Bar) ctx.getBean("testClassC");
+		ctx.close();
 	}
 
 	@Test

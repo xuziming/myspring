@@ -43,10 +43,10 @@ public final class AspectImplementingInterfaceTests {
 
 		assertTrue(testBean instanceof Advised);
 		assertFalse(interfaceExtendingAspect instanceof Advised);
+		ctx.close();
 	}
 
 }
-
 
 interface AnInterface {
 	public void interfaceMethod();

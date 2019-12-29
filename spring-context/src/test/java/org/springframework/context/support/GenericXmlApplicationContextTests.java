@@ -1,8 +1,6 @@
 package org.springframework.context.support;
 
 import org.junit.Test;
-
-import org.springframework.context.ApplicationContext;
 import org.springframework.util.ClassUtils;
 
 import static org.hamcrest.CoreMatchers.*;
@@ -26,8 +24,9 @@ public class GenericXmlApplicationContextTests {
 
 	@Test
 	public void classRelativeResourceLoading_ctor() {
-		ApplicationContext ctx = new GenericXmlApplicationContext(RELATIVE_CLASS, RESOURCE_NAME);
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext(RELATIVE_CLASS, RESOURCE_NAME);
 		assertThat(ctx.containsBean(TEST_BEAN_NAME), is(true));
+		ctx.close();
 	}
 
 	@Test
@@ -36,12 +35,14 @@ public class GenericXmlApplicationContextTests {
 		ctx.load(RELATIVE_CLASS, RESOURCE_NAME);
 		ctx.refresh();
 		assertThat(ctx.containsBean(TEST_BEAN_NAME), is(true));
+		ctx.close();
 	}
 
 	@Test
 	public void fullyQualifiedResourceLoading_ctor() {
-		ApplicationContext ctx = new GenericXmlApplicationContext(FQ_RESOURCE_PATH);
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext(FQ_RESOURCE_PATH);
 		assertThat(ctx.containsBean(TEST_BEAN_NAME), is(true));
+		ctx.close();
 	}
 
 	@Test
@@ -50,5 +51,7 @@ public class GenericXmlApplicationContextTests {
 		ctx.load(FQ_RESOURCE_PATH);
 		ctx.refresh();
 		assertThat(ctx.containsBean(TEST_BEAN_NAME), is(true));
+		ctx.close();
 	}
+
 }

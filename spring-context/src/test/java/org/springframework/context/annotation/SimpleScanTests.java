@@ -53,6 +53,7 @@ public class SimpleScanTests {
 
 		fooService.foo(1);
 		assertEquals(3, serviceInvocationCounter.getCount());
+		ctx.close();
 	}
 
 }

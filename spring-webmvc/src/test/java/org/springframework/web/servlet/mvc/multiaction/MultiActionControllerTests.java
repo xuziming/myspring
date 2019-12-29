@@ -47,6 +47,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author Rob Harrop
  * @author Sam Brannen
  */
+@SuppressWarnings({ "rawtypes", "deprecation", "unchecked" })
 public class MultiActionControllerTests {
 
 	@Test
@@ -540,13 +541,11 @@ public class MultiActionControllerTests {
 			this.invoked.clear();
 		}
 
-		@SuppressWarnings("unchecked")
 		public ModelAndView welcome(HttpServletRequest request, HttpServletResponse response) {
 			this.invoked.put("welcome", Boolean.TRUE);
 			return new ModelAndView("welcome");
 		}
 
-		@SuppressWarnings("unchecked")
 		public ModelAndView commandNoSession(HttpServletRequest request, HttpServletResponse response, TestBean command) {
 			this.invoked.put("commandNoSession", Boolean.TRUE);
 

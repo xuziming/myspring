@@ -42,6 +42,7 @@ public class DuplicateConfigurationClassPostProcessorTests {
 		ctx.registerBeanDefinition("b", new RootBeanDefinition(ConfigurationClassPostProcessor.class));
 		ctx.registerBeanDefinition("myConfig", new RootBeanDefinition(Config.class));
 		ctx.refresh();
+		ctx.close();
 	}
 
 	@Configuration

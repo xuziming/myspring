@@ -139,6 +139,7 @@ public class AppCacheManifestTransformer extends ResourceTransformerSupport {
 			logger.trace("AppCache file: [" + resource.getFilename()+ "] hash: [" + hash + "]");
 		}
 
+		scanner.close();
 		return new TransformedResource(resource, contentWriter.toString().getBytes(DEFAULT_CHARSET));
 	}
 

@@ -58,6 +58,7 @@ import org.springframework.remoting.support.RemoteInvocationResult;
  * @see org.springframework.remoting.caucho.SimpleHessianServiceExporter
  * @see org.springframework.remoting.caucho.SimpleBurlapServiceExporter
  */
+@SuppressWarnings("restriction")
 @UsesSunHttpServer
 public class SimpleHttpInvokerServiceExporter extends RemoteInvocationSerializingExporter implements HttpHandler {
 

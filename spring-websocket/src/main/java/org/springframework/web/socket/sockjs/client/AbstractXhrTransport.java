@@ -111,7 +111,6 @@ public abstract class AbstractXhrTransport implements XhrTransport {
 	// Transport methods
 
 	@Override
-	@SuppressWarnings("deprecation")
 	public ListenableFuture<WebSocketSession> connect(TransportRequest request, WebSocketHandler handler) {
 		SettableListenableFuture<WebSocketSession> connectFuture = new SettableListenableFuture<WebSocketSession>();
 		XhrClientSockJsSession session = new XhrClientSockJsSession(request, handler, this, connectFuture);
@@ -139,7 +138,6 @@ public abstract class AbstractXhrTransport implements XhrTransport {
 	// InfoReceiver methods
 
 	@Override
-	@SuppressWarnings("deprecation")
 	public String executeInfoRequest(URI infoUrl, HttpHeaders headers) {
 		if (logger.isDebugEnabled()) {
 			logger.debug("Executing SockJS Info request, url=" + infoUrl);

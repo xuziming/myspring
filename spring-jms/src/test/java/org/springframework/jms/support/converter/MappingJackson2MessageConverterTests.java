@@ -325,18 +325,22 @@ public class MappingJackson2MessageConverterTests {
 			this.description = description;
 		}
 
+		@SuppressWarnings("unused")
 		public String getName() {
 			return name;
 		}
 
+		@SuppressWarnings("unused")
 		public void setName(String name) {
 			this.name = name;
 		}
 
+		@SuppressWarnings("unused")
 		public String getDescription() {
 			return description;
 		}
 
+		@SuppressWarnings("unused")
 		public void setDescription(String description) {
 			this.description = description;
 		}

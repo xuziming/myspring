@@ -17,11 +17,9 @@
 package org.springframework.context.annotation;
 
 import org.junit.Test;
-
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.ApplicationContext;
 
 import static org.junit.Assert.*;
 
@@ -37,8 +35,9 @@ public class ConfigurationWithFactoryBeanAndParametersTests {
 
 	@Test
 	public void test() {
-		ApplicationContext ctx = new AnnotationConfigApplicationContext(Config.class, Bar.class);
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(Config.class, Bar.class);
 		assertNotNull(ctx.getBean(Bar.class).foo);
+		ctx.close();
 	}
 
 

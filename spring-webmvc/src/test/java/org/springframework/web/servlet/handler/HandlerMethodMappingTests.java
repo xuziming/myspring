@@ -47,6 +47,7 @@ import org.springframework.web.util.UrlPathHelper;
  * @author Arjen Poutsma
  * @author Rossen Stoyanchev
  */
+@SuppressWarnings({ "rawtypes" })
 public class HandlerMethodMappingTests {
 
 	private AbstractHandlerMethodMapping<String> mapping;

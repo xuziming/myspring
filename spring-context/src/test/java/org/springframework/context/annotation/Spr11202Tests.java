@@ -36,6 +36,7 @@ import static org.junit.Assert.*;
 /**
  * @author Dave Syer
  */
+@SuppressWarnings("resource")
 public class Spr11202Tests {
 
 	@Test

@@ -39,6 +39,7 @@ import static org.springframework.util.StringUtils.*;
  * @author Chris Beams
  * @author Juergen Hoeller
  */
+@SuppressWarnings({ "resource" })
 public class AnnotationConfigApplicationContextTests {
 
 	@Test(expected = IllegalArgumentException.class)

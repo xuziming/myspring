@@ -259,6 +259,7 @@ public class RequestResponseBodyMethodProcessorTests {
 		assertEquals("Robert", result.get(1).getName());
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Test  // SPR-11225
 	public void resolveArgumentTypeVariableWithNonGenericConverter() throws Exception {
 		Method method = MyParameterizedController.class.getMethod("handleDto", Identifiable.class);

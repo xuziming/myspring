@@ -56,6 +56,7 @@ public class PropertySourceAnnotationTests {
 	public ExpectedException thrown = ExpectedException.none();
 
 
+	@SuppressWarnings("resource")
 	@Test
 	public void withExplicitName() {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
@@ -77,6 +78,7 @@ public class PropertySourceAnnotationTests {
 		assertThat(name, is("p1"));
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void withImplicitName() {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
@@ -87,6 +89,7 @@ public class PropertySourceAnnotationTests {
 		assertThat(ctx.getBean(TestBean.class).getName(), equalTo("p1TestBean"));
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void withTestProfileBeans() {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
@@ -100,6 +103,7 @@ public class PropertySourceAnnotationTests {
 	 * Tests the LIFO behavior of @PropertySource annotaitons.
 	 * The last one registered should 'win'.
 	 */
+	@SuppressWarnings("resource")
 	@Test
 	public void orderingIsLifo() {
 		{
@@ -119,6 +123,7 @@ public class PropertySourceAnnotationTests {
 		}
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void withCustomFactory() {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
@@ -127,6 +132,7 @@ public class PropertySourceAnnotationTests {
 		assertThat(ctx.getBean(TestBean.class).getName(), equalTo("P2TESTBEAN"));
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void withCustomFactoryAsMeta() {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
@@ -135,6 +141,7 @@ public class PropertySourceAnnotationTests {
 		assertThat(ctx.getBean(TestBean.class).getName(), equalTo("P2TESTBEAN"));
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void withUnresolvablePlaceholder() {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
@@ -147,6 +154,7 @@ public class PropertySourceAnnotationTests {
 		}
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void withUnresolvablePlaceholderAndDefault() {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
@@ -155,6 +163,7 @@ public class PropertySourceAnnotationTests {
 		assertThat(ctx.getBean(TestBean.class).getName(), equalTo("p1TestBean"));
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void withResolvablePlaceholder() {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
@@ -165,6 +174,7 @@ public class PropertySourceAnnotationTests {
 		System.clearProperty("path.to.properties");
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void withResolvablePlaceholderAndFactoryBean() {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
@@ -175,6 +185,7 @@ public class PropertySourceAnnotationTests {
 		System.clearProperty("path.to.properties");
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void withEmptyResourceLocations() {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
@@ -187,6 +198,7 @@ public class PropertySourceAnnotationTests {
 		}
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void withNameAndMultipleResourceLocations() {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ConfigWithNameAndMultipleResourceLocations.class);
@@ -196,6 +208,7 @@ public class PropertySourceAnnotationTests {
 		assertThat(ctx.getEnvironment().getProperty("testbean.name"), equalTo("p2TestBean"));
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void withMultipleResourceLocations() {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ConfigWithMultipleResourceLocations.class);
@@ -205,6 +218,7 @@ public class PropertySourceAnnotationTests {
 		assertThat(ctx.getEnvironment().getProperty("testbean.name"), equalTo("p2TestBean"));
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void withPropertySources() {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ConfigWithPropertySources.class);
@@ -214,6 +228,7 @@ public class PropertySourceAnnotationTests {
 		assertThat(ctx.getEnvironment().getProperty("testbean.name"), equalTo("p2TestBean"));
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void withNamedPropertySources() {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ConfigWithNamedPropertySources.class);
@@ -223,6 +238,7 @@ public class PropertySourceAnnotationTests {
 		assertThat(ctx.getEnvironment().getProperty("testbean.name"), equalTo("p2TestBean"));
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void withMissingPropertySource() {
 		thrown.expect(BeanDefinitionStoreException.class);
@@ -230,6 +246,7 @@ public class PropertySourceAnnotationTests {
 		new AnnotationConfigApplicationContext(ConfigWithMissingPropertySource.class);
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void withIgnoredPropertySource() {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ConfigWithIgnoredPropertySource.class);
@@ -237,6 +254,7 @@ public class PropertySourceAnnotationTests {
 		assertThat(ctx.getEnvironment().containsProperty("from.p2"), is(true));
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void withSameSourceImportedInDifferentOrder() {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ConfigWithSameSourceImportedInDifferentOrder.class);
@@ -245,6 +263,7 @@ public class PropertySourceAnnotationTests {
 		assertThat(ctx.getEnvironment().getProperty("testbean.name"), equalTo("p2TestBean"));
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void orderingWithAndWithoutNameAndMultipleResourceLocations() {
 		// SPR-10820: p2 should 'win' as it was registered last
@@ -254,6 +273,7 @@ public class PropertySourceAnnotationTests {
 		assertThat(ctxWithName.getEnvironment().getProperty("testbean.name"), equalTo("p2TestBean"));
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void orderingWithAndWithoutNameAndFourResourceLocations() {
 		// SPR-12198: p4 should 'win' as it was registered last
@@ -261,6 +281,7 @@ public class PropertySourceAnnotationTests {
 		assertThat(ctxWithoutName.getEnvironment().getProperty("testbean.name"), equalTo("p4TestBean"));
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void orderingDoesntReplaceExisting() throws Exception {
 		// SPR-12198: mySource should 'win' as it was registered manually
@@ -311,6 +332,7 @@ public class PropertySourceAnnotationTests {
 
 		@Inject Environment env;
 
+		@SuppressWarnings("rawtypes")
 		@Bean
 		public FactoryBean testBean() {
 			final String name = env.getProperty("testbean.name");
@@ -401,6 +423,7 @@ public class PropertySourceAnnotationTests {
 
 	public static class MyCustomFactory implements PropertySourceFactory {
 
+		@SuppressWarnings({ "unchecked", "rawtypes" })
 		@Override
 		public org.springframework.core.env.PropertySource createPropertySource(String name, EncodedResource resource) throws IOException {
 			Properties props = PropertiesLoaderUtils.loadProperties(resource);

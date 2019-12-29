@@ -34,6 +34,7 @@ import static org.mockito.BDDMockito.*;
  * @deprecated as of Spring 4.3, in favor of Hibernate 4.x/5.x
  */
 @Deprecated
+@SuppressWarnings({"unchecked", "rawtypes"})
 public class HibernateDaoSupportTests {
 
 	@Test

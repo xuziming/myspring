@@ -17,8 +17,6 @@
 package org.springframework.beans.factory.xml;
 
 import org.junit.Test;
-
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.tests.sample.beans.ITestBean;
 
@@ -34,13 +32,14 @@ public class SimplePropertyNamespaceHandlerWithExpressionLanguageTests {
 
 	@Test
 	public void combineWithExpressionLanguage() {
-		ApplicationContext applicationContext =
+		ClassPathXmlApplicationContext context =
 				new ClassPathXmlApplicationContext("simplePropertyNamespaceHandlerWithExpressionLanguageTests.xml",
 						getClass());
-		ITestBean foo = applicationContext.getBean("foo", ITestBean.class);
-		ITestBean bar = applicationContext.getBean("bar", ITestBean.class);
+		ITestBean foo = context.getBean("foo", ITestBean.class);
+		ITestBean bar = context.getBean("bar", ITestBean.class);
 		assertEquals("Invalid name", "Baz", foo.getName());
 		assertEquals("Invalid name", "Baz", bar.getName());
+		context.close();
 	}
 
 }

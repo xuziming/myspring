@@ -35,6 +35,7 @@ import static org.junit.Assert.*;
  * @author Chris Beams
  * @since 3.1
  */
+@SuppressWarnings("resource")
 public class ConfigurationClassAndBFPPTests {
 
 	@Test

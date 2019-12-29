@@ -60,6 +60,7 @@ import static org.junit.Assert.*;
  * @author Chris Beams
  * @since 18.06.2003
  */
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class ViewResolverTests {
 
 	@Test

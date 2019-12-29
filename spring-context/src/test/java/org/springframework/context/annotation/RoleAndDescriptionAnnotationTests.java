@@ -45,6 +45,7 @@ public class RoleAndDescriptionAnnotationTests {
 		assertThat("Expected bean to have ROLE_INFRASTRUCTURE",
 				ctx.getBeanDefinition("bar").getRole(), is(BeanDefinition.ROLE_INFRASTRUCTURE));
 		assertThat(ctx.getBeanDefinition("bar").getDescription(), is("A Bean method with a role"));
+		ctx.close();
 	}
 
 	@Test
@@ -58,6 +59,7 @@ public class RoleAndDescriptionAnnotationTests {
 		assertThat("Expected bean to have ROLE_INFRASTRUCTURE",
 				ctx.getBeanDefinition("componentWithRole").getRole(), is(BeanDefinition.ROLE_INFRASTRUCTURE));
 		assertThat(ctx.getBeanDefinition("componentWithRole").getDescription(), is("A Component with a role"));
+		ctx.close();
 	}
 
 
@@ -72,6 +74,7 @@ public class RoleAndDescriptionAnnotationTests {
 		assertThat("Expected bean to have ROLE_INFRASTRUCTURE",
 				ctx.getBeanDefinition("componentWithRole").getRole(), is(BeanDefinition.ROLE_INFRASTRUCTURE));
 		assertThat(ctx.getBeanDefinition("componentWithRole").getDescription(), is("A Component with a role"));
+		ctx.close();
 	}
 
 

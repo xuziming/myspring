@@ -29,6 +29,7 @@ import static org.junit.Assert.*;
 /**
  * @author Stephane Nicoll
  */
+@SuppressWarnings("resource")
 public class Spr12278Tests {
 
 	@Rule
@@ -80,6 +81,7 @@ public class Spr12278Tests {
 		private final String autowiredName;
 
 		// No @Autowired - implicit wiring
+		@SuppressWarnings("unused")
 		public SingleConstructorComponent(String autowiredName) {
 			this.autowiredName = autowiredName;
 		}
@@ -94,6 +96,7 @@ public class Spr12278Tests {
 			this.name = name;
 		}
 
+		@SuppressWarnings("unused")
 		public TwoConstructorsComponent() {
 			this("fallback");
 		}
@@ -101,12 +104,14 @@ public class Spr12278Tests {
 
 	private static class TwoSpecificConstructorsComponent {
 
+		@SuppressWarnings("unused")
 		private final Integer counter;
 
 		public TwoSpecificConstructorsComponent(Integer counter) {
 			this.counter = counter;
 		}
 
+		@SuppressWarnings("unused")
 		public TwoSpecificConstructorsComponent(String name) {
 			this(Integer.valueOf(name));
 		}

@@ -48,6 +48,7 @@ import static org.mockito.BDDMockito.*;
  * @author Juergen Hoeller
  * @author Stephane Nicoll
  */
+@SuppressWarnings("rawtypes")
 public class JmsInvokerTests {
 
 	@Rule

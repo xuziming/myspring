@@ -29,6 +29,7 @@ import org.springframework.core.type.AnnotationMetadata;
  * @author Juergen Hoeller
  * @author Alex Pogrebnyak
  */
+@SuppressWarnings("resource")
 public class Spr12334Tests {
 
 	@Test

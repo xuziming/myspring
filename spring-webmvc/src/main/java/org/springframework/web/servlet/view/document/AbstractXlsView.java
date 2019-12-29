@@ -95,6 +95,7 @@ public abstract class AbstractXlsView extends AbstractView {
 	 * @param response current HTTP response
 	 * @throws IOException when thrown by I/O methods that we're delegating to
 	 */
+	@SuppressWarnings("cast")
 	protected void renderWorkbook(Workbook workbook, HttpServletResponse response) throws IOException {
 		ServletOutputStream out = response.getOutputStream();
 		workbook.write(out);

@@ -39,6 +39,7 @@ public class EnableLoadTimeWeavingTests {
 		GenericXmlApplicationContext ctx =
 			new GenericXmlApplicationContext(getClass(), "EnableLoadTimeWeavingTests-context.xml");
 		ctx.getBean("loadTimeWeaver", LoadTimeWeaver.class);
+		ctx.close();
 	}
 
 	@Test
@@ -48,6 +49,7 @@ public class EnableLoadTimeWeavingTests {
 		ctx.refresh();
 		LoadTimeWeaver loadTimeWeaver = ctx.getBean("loadTimeWeaver", LoadTimeWeaver.class);
 		verifyZeroInteractions(loadTimeWeaver);
+		ctx.close();
 	}
 
 	@Test
@@ -59,6 +61,7 @@ public class EnableLoadTimeWeavingTests {
 		// no expectations -> a class file transformer should NOT be added
 		// because no META-INF/aop.xml is present on the classpath
 		verifyZeroInteractions(loadTimeWeaver);
+		ctx.close();
 	}
 
 	@Test
@@ -68,6 +71,7 @@ public class EnableLoadTimeWeavingTests {
 		ctx.refresh();
 		LoadTimeWeaver loadTimeWeaver = ctx.getBean("loadTimeWeaver", LoadTimeWeaver.class);
 		verify(loadTimeWeaver).addTransformer(isA(ClassFileTransformer.class));
+		ctx.close();
 	}
 
 	@Configuration

@@ -28,6 +28,7 @@ import org.springframework.context.support.GenericXmlApplicationContext;
  * @author Mike Youngstrom
  * @author Chris Beams
  */
+@SuppressWarnings("resource")
 public class LazyScheduledTasksBeanDefinitionParserTests {
 
 	@Test(timeout = 5000)

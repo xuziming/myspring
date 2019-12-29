@@ -101,6 +101,7 @@ public class HttpSendingTransportHandlerTests  extends AbstractHttpRequestTests 
 		testJsonpTransport("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_.", true);
 	}
 
+	@SuppressWarnings("deprecation")
 	private void testJsonpTransport(String callbackValue, boolean expectSuccess) throws Exception {
 		JsonpPollingTransportHandler transportHandler = new JsonpPollingTransportHandler();
 		transportHandler.initialize(this.sockJsConfig);
@@ -183,6 +184,7 @@ public class HttpSendingTransportHandlerTests  extends AbstractHttpRequestTests 
 		verify(this.webSocketHandler).afterConnectionEstablished(session);
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void frameFormats() throws Exception {
 		this.servletRequest.setQueryString("c=callback");

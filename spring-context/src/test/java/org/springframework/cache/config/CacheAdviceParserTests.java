@@ -28,6 +28,7 @@ import static org.junit.Assert.*;
  *
  * @author Stephane Nicoll
  */
+@SuppressWarnings("resource")
 public class CacheAdviceParserTests {
 
 	@Test

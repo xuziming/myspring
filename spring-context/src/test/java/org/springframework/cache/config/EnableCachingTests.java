@@ -45,6 +45,7 @@ import static org.junit.Assert.*;
  * @author Chris Beams
  * @author Stephane Nicoll
  */
+@SuppressWarnings("resource")
 public class EnableCachingTests extends AbstractCacheAnnotationTests {
 
 	/** hook into superclass suite of tests */

@@ -18,17 +18,16 @@ package org.springframework.web.context;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 import org.junit.Test;
-
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.BeanDefinitionStoreException;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextException;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -344,9 +343,10 @@ public class ContextLoaderTests {
 		assertTrue(servlet.getWebApplicationContext().containsBean("kerryX"));
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void testClassPathXmlApplicationContext() throws IOException {
-		ApplicationContext context = new ClassPathXmlApplicationContext(
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
 				"/org/springframework/web/context/WEB-INF/applicationContext.xml");
 		assertTrue("Has father", context.containsBean("father"));
 		assertTrue("Has rod", context.containsBean("rod"));
@@ -360,8 +360,10 @@ public class ContextLoaderTests {
 		assertTrue("Has father", context.containsBean("father"));
 		assertTrue("Has rod", context.containsBean("rod"));
 		assertTrue("Has kerry", context.containsBean("kerry"));
+		context.close();
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void testSingletonDestructionOnStartupFailure() throws IOException {
 		try {

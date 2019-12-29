@@ -29,7 +29,6 @@ import static org.junit.Assert.*;
  *
  * @author Rossen Stoyanchev
  */
-@SuppressWarnings("deprecation")
 public class DefaultUriTemplateHandlerTests {
 
 	private final DefaultUriTemplateHandler handler = new DefaultUriTemplateHandler();

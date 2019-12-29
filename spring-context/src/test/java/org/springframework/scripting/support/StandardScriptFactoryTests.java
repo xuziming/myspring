@@ -34,6 +34,7 @@ import static org.junit.Assert.*;
  * @author Juergen Hoeller
  * @since 4.2
  */
+@SuppressWarnings("resource")
 public class StandardScriptFactoryTests {
 
 	@Test

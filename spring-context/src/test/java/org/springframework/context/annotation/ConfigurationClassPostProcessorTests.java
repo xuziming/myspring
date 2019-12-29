@@ -68,6 +68,7 @@ import static org.junit.Assert.*;
  * @author Juergen Hoeller
  * @author Sam Brannen
  */
+@SuppressWarnings("resource")
 public class ConfigurationClassPostProcessorTests {
 
 	private final DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
@@ -972,6 +973,7 @@ public class ConfigurationClassPostProcessorTests {
 	@Configuration
 	public static class RawRepositoryConfiguration {
 
+		@SuppressWarnings("rawtypes")
 		@Bean
 		public Repository stringRepo() {
 			return new Repository<String>() {

@@ -319,7 +319,6 @@ public class UndertowXhrTransport extends AbstractXhrTransport {
 			public void completed(ClientExchange result) {
 				result.setResponseListener(new ClientCallback<ClientExchange>() {
 					@Override
-					@SuppressWarnings("deprecation")
 					public void completed(final ClientExchange result) {
 						responses.add(result.getResponse());
 						new StringReadChannelListener(result.getConnection().getBufferPool()) {

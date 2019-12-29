@@ -55,7 +55,7 @@ import static org.junit.Assert.*;
  * @author Alef Arendsen
  * @author Bram Smeets
  */
-@SuppressWarnings("deprecation")
+@SuppressWarnings({ "deprecation", "resource" })
 public class ExcelViewTests {
 
 	private MockHttpServletRequest request;

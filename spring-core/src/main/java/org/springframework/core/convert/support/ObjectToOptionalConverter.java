@@ -37,6 +37,7 @@ import org.springframework.lang.UsesJava8;
  * @since 4.1
  */
 @UsesJava8
+@SuppressWarnings("rawtypes")
 final class ObjectToOptionalConverter implements ConditionalGenericConverter {
 
 	private final ConversionService conversionService;

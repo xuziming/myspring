@@ -47,6 +47,7 @@ import static org.springframework.cache.CacheTestUtils.*;
  * @author Stephane Nicoll
  * @since 4.1
  */
+@SuppressWarnings({ "resource" })
 public class CacheResolverCustomizationTests {
 
 	private CacheManager cacheManager;

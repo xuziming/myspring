@@ -33,7 +33,6 @@ import org.springframework.util.Assert;
  * on {@link UserSessionRegistry} for more details.
  */
 @Deprecated
-@SuppressWarnings({"deprecation"})
 public class DefaultUserSessionRegistry implements UserSessionRegistry {
 
 	// userId -> sessionId

@@ -28,6 +28,7 @@ import static org.junit.Assert.*;
 /**
  * @author Mark Fisher
  */
+@SuppressWarnings({ "resource" })
 public class ComponentScanParserWithUserDefinedStrategiesTests {
 
 	@Test

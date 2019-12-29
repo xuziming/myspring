@@ -50,6 +50,7 @@ import static org.junit.Assert.*;
  * @author Sebastien Deleuze
  * @author Rossen Stoyanchev
  */
+@SuppressWarnings("deprecation")
 public class ViewResolverRegistryTests {
 
 	private ViewResolverRegistry registry;

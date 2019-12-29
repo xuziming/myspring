@@ -1,3 +1,8 @@
+*.class
+
+bin/
+*/bin/
+
 .idea/
 */.idea/
 

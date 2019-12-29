@@ -155,11 +155,13 @@ public class MessageConverterTests {
 			return String.class.equals(clazz);
 		}
 
+		@SuppressWarnings("deprecation")
 		@Override
 		public Object convertFromInternal(Message<?> message, Class<?> targetClass) {
 			return "success-from";
 		}
 
+		@SuppressWarnings("deprecation")
 		@Override
 		public Object convertToInternal(Object payload, MessageHeaders headers) {
 			return "success-to";

@@ -39,7 +39,6 @@ import java.util.TreeSet;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.InvalidPropertyException;
 import org.springframework.beans.MutablePropertyValues;
@@ -1808,6 +1807,7 @@ public class DataBinderTests {
 		assertEquals("badName", nameError.getCode());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testBindingWithResortedList() {
 		IndexedTestBean tb = new IndexedTestBean();
@@ -2113,6 +2113,7 @@ public class DataBinderTests {
 			return Title;
 		}
 
+		@SuppressWarnings("unused")
 		public void setTitle(String title) {
 			Title = title;
 		}
@@ -2121,6 +2122,7 @@ public class DataBinderTests {
 			return ISBN;
 		}
 
+		@SuppressWarnings("unused")
 		public void setISBN(String ISBN) {
 			this.ISBN = ISBN;
 		}
@@ -2129,6 +2131,7 @@ public class DataBinderTests {
 			return nInStock;
 		}
 
+		@SuppressWarnings("unused")
 		public void setNInStock(int nInStock) {
 			this.nInStock = nInStock;
 		}
@@ -2145,6 +2148,7 @@ public class DataBinderTests {
 			return id;
 		}
 
+		@SuppressWarnings("unused")
 		public void setId(String id) {
 			this.id = id;
 		}
@@ -2153,6 +2157,7 @@ public class DataBinderTests {
 			return name;
 		}
 
+		@SuppressWarnings("unused")
 		public void setName(Optional<String> name) {
 			this.name = name;
 		}

@@ -65,6 +65,7 @@ import static org.junit.Assert.assertTrue;
  * @see HandlerMethodAnnotationDetectionTests
  * @see RequestMappingHandlerAdapterIntegrationTests
  */
+@SuppressWarnings("deprecation")
 public class RequestMappingHandlerAdapterTests {
 
 	private static int RESOLVER_COUNT;

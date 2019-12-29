@@ -27,6 +27,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author Ramnivas Laddad
  * @author Chris Beams
  */
+@SuppressWarnings("resource")
 public final class ImplicitJPArgumentMatchingTests {
 
 	@Test

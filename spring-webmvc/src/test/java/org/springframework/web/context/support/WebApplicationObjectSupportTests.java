@@ -32,6 +32,7 @@ import static org.junit.Assert.*;
  * @author Chris Beams
  * @since 28.08.2003
  */
+@SuppressWarnings("resource")
 public class WebApplicationObjectSupportTests {
 
 	@Test

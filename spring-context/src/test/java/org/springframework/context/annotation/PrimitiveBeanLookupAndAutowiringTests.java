@@ -19,9 +19,7 @@ package org.springframework.context.annotation;
 import javax.annotation.Resource;
 
 import org.junit.Test;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
@@ -45,36 +43,40 @@ public class PrimitiveBeanLookupAndAutowiringTests {
 
 	@Test
 	public void primitiveLookupByName() {
-		ApplicationContext ctx = new AnnotationConfigApplicationContext(Config.class);
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(Config.class);
 		boolean b = ctx.getBean("b", boolean.class);
 		assertThat(b, equalTo(true));
 		int i = ctx.getBean("i", int.class);
 		assertThat(i, equalTo(42));
+		ctx.close();
 	}
 
 	@Test
 	public void primitiveLookupByType() {
-		ApplicationContext ctx = new AnnotationConfigApplicationContext(Config.class);
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(Config.class);
 		boolean b = ctx.getBean(boolean.class);
 		assertThat(b, equalTo(true));
 		int i = ctx.getBean(int.class);
 		assertThat(i, equalTo(42));
+		ctx.close();
 	}
 
 	@Test
 	public void primitiveAutowiredInjection() {
-		ApplicationContext ctx =
+		AnnotationConfigApplicationContext ctx =
 				new AnnotationConfigApplicationContext(Config.class, AutowiredComponent.class);
 		assertThat(ctx.getBean(AutowiredComponent.class).b, equalTo(true));
 		assertThat(ctx.getBean(AutowiredComponent.class).i, equalTo(42));
+		ctx.close();
 	}
 
 	@Test
 	public void primitiveResourceInjection() {
-		ApplicationContext ctx =
+		AnnotationConfigApplicationContext ctx =
 				new AnnotationConfigApplicationContext(Config.class, ResourceComponent.class);
 		assertThat(ctx.getBean(ResourceComponent.class).b, equalTo(true));
 		assertThat(ctx.getBean(ResourceComponent.class).i, equalTo(42));
+		ctx.close();
 	}
 
 

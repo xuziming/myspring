@@ -324,6 +324,7 @@ public class MappingJackson2JsonViewTests {
 		assertFalse(content.contains(FilterProvider.class.getName()));
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void renderWithJsonp() throws Exception {
 		testJsonp("jsonp", "callback", false);
@@ -468,6 +469,7 @@ public class MappingJackson2JsonViewTests {
 		private String property1;
 		private String property2;
 
+		@SuppressWarnings("unused")
 		public String getProperty1() {
 			return property1;
 		}
@@ -476,6 +478,7 @@ public class MappingJackson2JsonViewTests {
 			this.property1 = property1;
 		}
 
+		@SuppressWarnings("unused")
 		public String getProperty2() {
 			return property2;
 		}
@@ -485,8 +488,6 @@ public class MappingJackson2JsonViewTests {
 		}
 	}
 
-
-	
 	public static class DelegatingSerializerFactory extends BeanSerializerFactory {
 
 		protected DelegatingSerializerFactory(SerializerFactoryConfig config) {

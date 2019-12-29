@@ -20,8 +20,6 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import org.springframework.context.ApplicationContext;
-
 import static org.junit.Assert.*;
 
 /**
@@ -32,11 +30,12 @@ public class Spr7816Tests {
 
 	@Test
 	public void spr7816() {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("spr7816.xml", getClass());
+		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("spr7816.xml", getClass());
 		FilterAdapter adapter = ctx.getBean(FilterAdapter.class);
 		assertEquals(Building.class, adapter.getSupportedTypes().get("Building"));
 		assertEquals(Entrance.class, adapter.getSupportedTypes().get("Entrance"));
 		assertEquals(Dwelling.class, adapter.getSupportedTypes().get("Dwelling"));
+		ctx.close();
 	}
 
 	public static class FilterAdapter {

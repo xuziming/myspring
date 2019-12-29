@@ -332,7 +332,6 @@ public class FormTag extends AbstractHtmlElementTag {
 	 * Get the name of the request param for non-browser supported HTTP methods.
 	 * @since 4.2.3
 	 */
-	@SuppressWarnings("deprecation")
 	protected String getMethodParam() {
 		return getMethodParameter();
 	}

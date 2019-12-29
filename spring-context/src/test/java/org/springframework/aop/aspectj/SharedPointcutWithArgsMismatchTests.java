@@ -37,6 +37,7 @@ public final class SharedPointcutWithArgsMismatchTests {
 		ClassPathXmlApplicationContext ctx =
 			new ClassPathXmlApplicationContext(getClass().getSimpleName() + ".xml", getClass());
 		toBeAdvised = (ToBeAdvised) ctx.getBean("toBeAdvised");
+		ctx.close();
 	}
 
 	@Test

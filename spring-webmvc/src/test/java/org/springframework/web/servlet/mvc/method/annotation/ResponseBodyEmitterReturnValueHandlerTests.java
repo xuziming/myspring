@@ -48,6 +48,7 @@ import org.springframework.web.method.support.ModelAndViewContainer;
  * Unit tests for ResponseBodyEmitterReturnValueHandler.
  * @author Rossen Stoyanchev
  */
+@SuppressWarnings("rawtypes")
 public class ResponseBodyEmitterReturnValueHandlerTests {
 
 	private ResponseBodyEmitterReturnValueHandler handler;
@@ -244,6 +245,7 @@ public class ResponseBodyEmitterReturnValueHandlerTests {
 
 		private String name;
 
+		@SuppressWarnings("unused")
 		public Long getId() {
 			return id;
 		}
@@ -252,6 +254,7 @@ public class ResponseBodyEmitterReturnValueHandlerTests {
 			this.id = id;
 		}
 
+		@SuppressWarnings("unused")
 		public String getName() {
 			return name;
 		}

@@ -337,7 +337,6 @@ public class StompSubProtocolHandler implements SubProtocolHandler, ApplicationE
 		return user != null ? user : session.getPrincipal();
 	}
 
-	@SuppressWarnings("deprecation")
 	private void handleError(WebSocketSession session, Throwable ex, Message<byte[]> clientMessage) {
 		if (getErrorHandler() == null) {
 			sendErrorMessage(session, ex);

@@ -66,6 +66,7 @@ public class FormTagTests extends AbstractHtmlElementTagTests {
 		this.request = request;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void writeForm() throws Exception {
 		String commandName = "myCommand";
@@ -130,6 +131,7 @@ public class FormTagTests extends AbstractHtmlElementTagTests {
 		assertContainsAttribute(output, dynamicAttribute2, dynamicAttribute2);
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void withActionFromRequest() throws Exception {
 		String commandName = "myCommand";
@@ -168,6 +170,7 @@ public class FormTagTests extends AbstractHtmlElementTagTests {
 		assertAttributeNotPresent(output, "name");
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void prependServletPath() throws Exception {
 
@@ -213,6 +216,7 @@ public class FormTagTests extends AbstractHtmlElementTagTests {
 		assertAttributeNotPresent(output, "name");
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void withNullResolvedCommand() throws Exception {
 		try {

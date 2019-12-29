@@ -56,6 +56,7 @@ import static org.junit.Assert.*;
  * @author Stephane Nicoll
  * @author Sam Brannen
  */
+@SuppressWarnings("resource")
 public class EnableJmsTests extends AbstractJmsAnnotationDrivenTests {
 
 	@Rule
@@ -184,7 +185,6 @@ public class EnableJmsTests extends AbstractJmsAnnotationDrivenTests {
 	}
 
 	@Test
-	@SuppressWarnings("resource")
 	public void unknownFactory() {
 		thrown.expect(BeanCreationException.class);
 		thrown.expectMessage("customFactory");  // not found

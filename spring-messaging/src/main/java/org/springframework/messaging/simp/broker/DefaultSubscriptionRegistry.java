@@ -539,6 +539,7 @@ public class DefaultSubscriptionRegistry extends AbstractSubscriptionRegistry {
 			return true;
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public TypedValue read(EvaluationContext context, Object target, String name) {
 			Object value;

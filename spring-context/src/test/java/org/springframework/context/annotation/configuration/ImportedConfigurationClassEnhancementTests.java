@@ -17,9 +17,7 @@
 package org.springframework.context.annotation.configuration;
 
 import org.junit.Test;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -49,10 +47,10 @@ public class ImportedConfigurationClassEnhancementTests {
 	}
 
 	private void autowiredConfigClassIsEnhanced(Class<?>... configClasses) {
-		ApplicationContext ctx = new AnnotationConfigApplicationContext(configClasses);
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(configClasses);
 		Config config = ctx.getBean(Config.class);
-		assertTrue("autowired config class has not been enhanced",
-				ClassUtils.isCglibProxy(config.autowiredConfig));
+		assertTrue("autowired config class has not been enhanced", ClassUtils.isCglibProxy(config.autowiredConfig));
+		ctx.close();
 	}
 
 
@@ -67,23 +65,22 @@ public class ImportedConfigurationClassEnhancementTests {
 	}
 
 	private void autowiredConfigClassBeanMethodsRespectScoping(Class<?>... configClasses) {
-		ApplicationContext ctx = new AnnotationConfigApplicationContext(configClasses);
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(configClasses);
 		Config config = ctx.getBean(Config.class);
 		TestBean testBean1 = config.autowiredConfig.testBean();
 		TestBean testBean2 = config.autowiredConfig.testBean();
 		assertThat("got two distinct instances of testBean when singleton scoping was expected",
 				testBean1, sameInstance(testBean2));
+		ctx.close();
 	}
-
 
 	@Test
 	public void importingNonConfigurationClassCausesBeanDefinitionParsingException() {
-		ApplicationContext ctx = new AnnotationConfigApplicationContext(ConfigThatImportsNonConfigClass.class);
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ConfigThatImportsNonConfigClass.class);
 		ConfigThatImportsNonConfigClass config = ctx.getBean(ConfigThatImportsNonConfigClass.class);
 		assertSame(ctx.getBean(TestBean.class), config.testBean);
+		ctx.close();
 	}
-
-
 
 	@Configuration
 	static class ConfigToBeAutowired {

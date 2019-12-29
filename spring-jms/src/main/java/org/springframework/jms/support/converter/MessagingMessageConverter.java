@@ -150,7 +150,6 @@ public class MessagingMessageConverter implements MessageConverter, Initializing
 	 * @see MessageConverter#toMessage(Object, Session)
 	 * @since 4.3
 	 */
-	@SuppressWarnings("deprecation")
 	protected javax.jms.Message createMessageForPayload(Object payload, Session session, Object conversionHint)
 			throws JMSException {
 

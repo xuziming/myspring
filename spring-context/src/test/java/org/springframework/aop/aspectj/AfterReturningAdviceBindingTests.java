@@ -37,6 +37,7 @@ import static org.mockito.BDDMockito.*;
  * @author Juergen Hoeller
  * @author Chris Beams
  */
+@SuppressWarnings("resource")
 public final class AfterReturningAdviceBindingTests {
 
 	private AfterReturningAdviceBindingTestAspect afterAdviceAspect;

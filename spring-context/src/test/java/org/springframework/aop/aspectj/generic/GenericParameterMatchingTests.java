@@ -51,6 +51,7 @@ public final class GenericParameterMatchingTests {
 		counterAspect.reset();
 
 		testBean = (GenericInterface<String>) ctx.getBean("testBean");
+		ctx.close();
 	}
 
 

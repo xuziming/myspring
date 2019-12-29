@@ -38,7 +38,6 @@ import org.springframework.util.MimeType.SpecificityComparator;
  * @author Rossen Stoyanchev
  * @since 4.0
  */
-@SuppressWarnings("deprecation")
 public abstract class MimeTypeUtils {
 
 	private static final byte[] BOUNDARY_CHARS =

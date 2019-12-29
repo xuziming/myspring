@@ -176,6 +176,7 @@ public class GsonHttpMessageConverterTests {
 	@SuppressWarnings("unchecked")
 	public void readGenerics() throws IOException {
 		GsonHttpMessageConverter converter = new GsonHttpMessageConverter() {
+			@SuppressWarnings("deprecation")
 			@Override
 			protected TypeToken<?> getTypeToken(Type type) {
 				if (type instanceof Class && List.class.isAssignableFrom((Class<?>) type)) {

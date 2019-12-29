@@ -74,6 +74,7 @@ import static org.mockito.BDDMockito.*;
  * @author Brian Clozel
  * @author Sebastien Deleuze
  */
+@SuppressWarnings("rawtypes")
 public class SimpAnnotationMethodMessageHandlerTests {
 
 	private static final String TEST_INVALID_VALUE = "invalidValue";

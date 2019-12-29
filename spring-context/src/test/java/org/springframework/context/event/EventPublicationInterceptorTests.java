@@ -114,10 +114,9 @@ public class EventPublicationInterceptorTests {
 		assertTrue("Interceptor must have published 2 events", listener.getEventCount() == 2);
 		TestListener otherListener = (TestListener) ctx.getBean("&otherListener");
 		assertTrue("Interceptor must have published 2 events", otherListener.getEventCount() == 2);
+		ctx.close();
 	}
 
-
-	
 	public static final class TestEventWithNoValidOneArgObjectCtor extends ApplicationEvent {
 
 		public TestEventWithNoValidOneArgObjectCtor() {

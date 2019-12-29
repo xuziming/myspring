@@ -21,6 +21,7 @@ import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 /**
  * @author Rob Harrop
  */
+@SuppressWarnings("deprecation")
 public class AdminController extends MultiActionController {
 
 }

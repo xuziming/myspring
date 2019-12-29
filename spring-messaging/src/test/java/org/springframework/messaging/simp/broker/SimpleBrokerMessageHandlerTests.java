@@ -59,7 +59,7 @@ import static org.mockito.Mockito.when;
  * @author Rossen Stoyanchev
  * @since 4.0
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings({ "unchecked", "rawtypes" })
 public class SimpleBrokerMessageHandlerTests {
 
 	private SimpleBrokerMessageHandler messageHandler;

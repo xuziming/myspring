@@ -42,6 +42,7 @@ import static org.junit.Assert.*;
  * @author Chris Beams
  * @see org.springframework.beans.factory.config.PropertyResourceConfigurerTests
  */
+@SuppressWarnings({ "resource" })
 public class PropertyResourceConfigurerIntegrationTests {
 
 	@Test

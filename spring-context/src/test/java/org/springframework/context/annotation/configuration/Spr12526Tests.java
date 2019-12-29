@@ -46,6 +46,7 @@ public class Spr12526Tests {
 		condition.setCondition(false);
 		SecondService secondService = (SecondService) ctx.getBean(Service.class);
 		assertNotNull("SecondService.dependency is null", secondService.getDependency());
+		ctx.close();
 	}
 
 

@@ -41,6 +41,7 @@ public final class BeanNameAutoProxyCreatorInitTests {
 		bean.setName("foo");
 		assertEquals("foo", bean.getName());
 		bean.setName(null); // should throw
+		ctx.close();
 	}
 
 }

@@ -25,6 +25,7 @@ import static org.junit.Assert.*;
  */
 public class TransportTypeTests {
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testFromValue() {
 		assertEquals(TransportType.WEBSOCKET, TransportType.fromValue("websocket"));

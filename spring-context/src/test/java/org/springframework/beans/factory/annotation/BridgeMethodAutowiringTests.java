@@ -34,6 +34,7 @@ public class BridgeMethodAutowiringTests {
 		ctx.register(UserServiceImpl.class, Foo.class);
 		ctx.refresh();
 		assertNotNull(ctx.getBean(UserServiceImpl.class).object);
+		ctx.close();
 	}
 
 

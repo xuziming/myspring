@@ -42,6 +42,7 @@ public class Spr7167Tests {
 
 		MyConfig config = ctx.getBean(MyConfig.class);
 		assertTrue("Config class was not enhanced", ClassUtils.isCglibProxy(config));
+		ctx.close();
 	}
 }
 

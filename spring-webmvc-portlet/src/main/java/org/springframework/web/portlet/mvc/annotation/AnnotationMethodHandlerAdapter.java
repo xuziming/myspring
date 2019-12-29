@@ -275,6 +275,7 @@ public class AnnotationMethodHandlerAdapter extends PortletContentGenerator
 	}
 
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean supports(Object handler) {
 		return getMethodResolver(handler).hasHandlerMethods();
@@ -354,7 +355,7 @@ public class AnnotationMethodHandlerAdapter extends PortletContentGenerator
 		return invokeHandlerMethod(request, response, handler, implicitModel);
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "deprecation" })
 	private ModelAndView invokeHandlerMethod(
 			PortletRequest request, PortletResponse response, Object handler, ExtendedModelMap implicitModel)
 			throws Exception {

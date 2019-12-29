@@ -195,6 +195,7 @@ public class StompBrokerRelayMessageHandlerTests {
 		assertEquals("Broker not available.", accessor.getMessage());
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void systemSubscription() throws Exception {
 
@@ -254,6 +255,7 @@ public class StompBrokerRelayMessageHandlerTests {
 		return futureTask;
 	}
 
+	@SuppressWarnings("unused")
 	private static ListenableFutureTask<Boolean> getBooleanFuture() {
 		ListenableFutureTask<Boolean> futureTask = new ListenableFutureTask<>(new Callable<Boolean>() {
 			@Override

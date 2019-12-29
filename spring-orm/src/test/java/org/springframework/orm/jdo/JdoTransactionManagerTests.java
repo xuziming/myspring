@@ -58,6 +58,7 @@ import static org.mockito.BDDMockito.*;
  * @author Juergen Hoeller
  * @author Phillip Webb
  */
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class JdoTransactionManagerTests {
 
 	private PersistenceManagerFactory pmf;
@@ -82,7 +83,6 @@ public class JdoTransactionManagerTests {
 		assertFalse(TransactionSynchronizationManager.isActualTransactionActive());
 	}
 
-	@SuppressWarnings("unchecked")
 	@Test
 	public void testTransactionCommit() {
 		given(pmf.getPersistenceManager()).willReturn(pm);

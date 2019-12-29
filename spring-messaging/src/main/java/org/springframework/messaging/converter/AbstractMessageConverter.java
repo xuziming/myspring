@@ -256,7 +256,6 @@ public abstract class AbstractMessageConverter implements SmartMessageConverter 
 	 * perform the conversion
 	 * @since 4.2
 	 */
-	@SuppressWarnings("deprecation")
 	protected Object convertFromInternal(Message<?> message, Class<?> targetClass, Object conversionHint) {
 		return convertFromInternal(message, targetClass);
 	}
@@ -271,7 +270,6 @@ public abstract class AbstractMessageConverter implements SmartMessageConverter 
 	 * cannot perform the conversion
 	 * @since 4.2
 	 */
-	@SuppressWarnings("deprecation")
 	protected Object convertToInternal(Object payload, MessageHeaders headers, Object conversionHint) {
 		return convertToInternal(payload, headers);
 	}

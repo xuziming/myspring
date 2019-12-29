@@ -27,6 +27,7 @@ import static org.junit.Assert.*;
 /**
  * @author Juergen Hoeller
  */
+@SuppressWarnings("resource")
 public class Spr15275Tests {
 
 	@Test

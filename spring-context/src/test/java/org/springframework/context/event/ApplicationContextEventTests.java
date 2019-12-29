@@ -59,6 +59,7 @@ import static org.mockito.BDDMockito.*;
  * @author Stephane Nicoll
  * @author Juergen Hoeller
  */
+@SuppressWarnings("rawtypes")
 public class ApplicationContextEventTests extends AbstractApplicationEventListenerTests {
 
 	@Test

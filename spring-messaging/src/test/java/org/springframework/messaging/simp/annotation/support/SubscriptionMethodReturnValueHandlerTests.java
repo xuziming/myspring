@@ -232,6 +232,7 @@ public class SubscriptionMethodReturnValueHandlerTests {
 
 		private String withoutView;
 
+		@SuppressWarnings("unused")
 		public String getWithView1() {
 			return withView1;
 		}
@@ -240,6 +241,7 @@ public class SubscriptionMethodReturnValueHandlerTests {
 			this.withView1 = withView1;
 		}
 
+		@SuppressWarnings("unused")
 		public String getWithView2() {
 			return withView2;
 		}
@@ -248,6 +250,7 @@ public class SubscriptionMethodReturnValueHandlerTests {
 			this.withView2 = withView2;
 		}
 
+		@SuppressWarnings("unused")
 		public String getWithoutView() {
 			return withoutView;
 		}

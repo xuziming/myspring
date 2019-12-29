@@ -40,6 +40,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Arjen Poutsma
  */
+@SuppressWarnings({ "rawtypes" })
 public class AtomFeedViewTests {
 
 	private AbstractAtomFeedView view;

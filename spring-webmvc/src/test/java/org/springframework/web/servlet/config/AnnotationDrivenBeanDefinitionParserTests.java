@@ -57,6 +57,7 @@ import static org.junit.Assert.*;
  * @author Brian Clozel
  * @author Agim Emruli
  */
+@SuppressWarnings({ "unchecked", "rawtypes" })
 public class AnnotationDrivenBeanDefinitionParserTests {
 
 	private GenericWebApplicationContext appContext;
@@ -123,7 +124,6 @@ public class AnnotationDrivenBeanDefinitionParserTests {
 		Object value = new DirectFieldAccessor(bean).getPropertyValue("customArgumentResolvers");
 		assertNotNull(value);
 		assertTrue(value instanceof List);
-		@SuppressWarnings("unchecked")
 		List<HandlerMethodArgumentResolver> resolvers = (List<HandlerMethodArgumentResolver>) value;
 		assertEquals(3, resolvers.size());
 		assertTrue(resolvers.get(0) instanceof ServletWebArgumentResolverAdapter);
@@ -144,7 +144,6 @@ public class AnnotationDrivenBeanDefinitionParserTests {
 		Object value = new DirectFieldAccessor(bean).getPropertyValue("customReturnValueHandlers");
 		assertNotNull(value);
 		assertTrue(value instanceof List);
-		@SuppressWarnings("unchecked")
 		List<HandlerMethodReturnValueHandler> handlers = (List<HandlerMethodReturnValueHandler>) value;
 		assertEquals(2, handlers.size());
 		assertEquals(TestHandlerMethodReturnValueHandler.class, handlers.get(0).getClass());
@@ -167,7 +166,6 @@ public class AnnotationDrivenBeanDefinitionParserTests {
 		this.appContext.refresh();
 	}
 
-	@SuppressWarnings("unchecked")
 	private void verifyMessageConverters(Object bean, boolean hasDefaultRegistrations) {
 		assertNotNull(bean);
 		Object value = new DirectFieldAccessor(bean).getPropertyValue("messageConverters");
@@ -184,7 +182,6 @@ public class AnnotationDrivenBeanDefinitionParserTests {
 		assertTrue(converters.get(1) instanceof ResourceHttpMessageConverter);
 	}
 
-	@SuppressWarnings("unchecked")
 	private void verifyResponseBodyAdvice(Object bean) {
 		assertNotNull(bean);
 		Object value = new DirectFieldAccessor(bean).getPropertyValue("responseBodyAdvice");
@@ -194,7 +191,6 @@ public class AnnotationDrivenBeanDefinitionParserTests {
 		assertTrue(converters.get(0) instanceof JsonViewResponseBodyAdvice);
 	}
 
-	@SuppressWarnings("unchecked")
 	private void verifyRequestResponseBodyAdvice(Object bean) {
 		assertNotNull(bean);
 		Object value = new DirectFieldAccessor(bean).getPropertyValue("requestResponseBodyAdvice");

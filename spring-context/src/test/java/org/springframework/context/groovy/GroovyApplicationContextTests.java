@@ -27,6 +27,7 @@ import static org.junit.Assert.*;
  * @author Jeff Brown
  * @author Juergen Hoeller
  */
+@SuppressWarnings("resource")
 public class GroovyApplicationContextTests {
 
 	@Test

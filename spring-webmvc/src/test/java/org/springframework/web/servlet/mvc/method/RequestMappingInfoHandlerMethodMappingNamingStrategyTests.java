@@ -33,6 +33,7 @@ import static org.junit.Assert.*;
  *
  * @author Rossen Stoyanchev
  */
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class RequestMappingInfoHandlerMethodMappingNamingStrategyTests {
 
 

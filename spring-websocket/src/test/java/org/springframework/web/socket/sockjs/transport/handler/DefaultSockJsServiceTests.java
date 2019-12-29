@@ -50,6 +50,7 @@ import static org.mockito.BDDMockito.*;
  * @author Sebastien Deleuze
  * @author Ben Kiefer
  */
+@SuppressWarnings("deprecation")
 public class DefaultSockJsServiceTests extends AbstractHttpRequestTests {
 
 	private static final String sockJsPrefix = "/mysockjs";

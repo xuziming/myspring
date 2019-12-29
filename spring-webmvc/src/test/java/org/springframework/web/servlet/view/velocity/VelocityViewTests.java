@@ -52,6 +52,7 @@ import static org.mockito.BDDMockito.*;
  * @author Juergen Hoeller
  * @author Dave Syer
  */
+@SuppressWarnings("deprecation")
 public class VelocityViewTests {
 
 	@Test

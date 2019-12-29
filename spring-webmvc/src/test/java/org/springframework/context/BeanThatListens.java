@@ -24,6 +24,7 @@ import java.util.Map;
  * @author Thomas Risberg
  * @author Juergen Hoeller
  */
+@SuppressWarnings({ "rawtypes" })
 public class BeanThatListens implements ApplicationListener {
 
 	private BeanThatBroadcasts beanThatBroadcasts;

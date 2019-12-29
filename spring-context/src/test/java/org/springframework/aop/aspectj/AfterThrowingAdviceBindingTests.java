@@ -31,6 +31,7 @@ import static org.mockito.BDDMockito.*;
  * @author Adrian Colyer
  * @author Chris Beams
  */
+@SuppressWarnings("resource")
 public final class AfterThrowingAdviceBindingTests {
 
 	private ITestBean testBean;

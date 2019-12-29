@@ -554,7 +554,7 @@ public class RequestParamMethodArgumentResolverTests {
 		assertEquals(Optional.empty(), resolver.resolveArgument(multipartFileOptional, null, webRequest, binderFactory));
 	}
 
-
+	@SuppressWarnings("rawtypes")
 	public void handle(
 			@RequestParam(name = "name", defaultValue = "bar") String param1,
 			@RequestParam("name") String[] param2,

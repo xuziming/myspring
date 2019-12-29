@@ -58,6 +58,7 @@ public class ImportWithConditionTests {
 	@Import({ConditionalConfiguration.class, UnconditionalConfiguration.class})
 	protected static class ConditionalThenUnconditional {
 
+		@SuppressWarnings("unused")
 		@Autowired
 		private BeanOne beanOne;
 	}
@@ -67,6 +68,7 @@ public class ImportWithConditionTests {
 	@Import({UnconditionalConfiguration.class, ConditionalConfiguration.class})
 	protected static class UnconditionalThenConditional {
 
+		@SuppressWarnings("unused")
 		@Autowired
 		private BeanOne beanOne;
 	}

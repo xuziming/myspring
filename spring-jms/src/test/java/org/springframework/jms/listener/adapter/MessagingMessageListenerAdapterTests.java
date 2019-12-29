@@ -51,6 +51,7 @@ import static org.mockito.BDDMockito.*;
 /**
  * @author Stephane Nicoll
  */
+@SuppressWarnings({ "rawtypes" })
 public class MessagingMessageListenerAdapterTests {
 
 	@Rule
@@ -409,34 +410,40 @@ public class MessagingMessageListenerAdapterTests {
 		@JsonView(Full.class)
 		private String description;
 
-		SampleResponse() {
-		}
+		@SuppressWarnings("unused")
+		SampleResponse() {}
 
 		public SampleResponse(String name, String description) {
 			this.name = name;
 			this.description = description;
 		}
 
+		@SuppressWarnings("unused")
 		public int getCounter() {
 			return counter;
 		}
 
+		@SuppressWarnings("unused")
 		public void setCounter(int counter) {
 			this.counter = counter;
 		}
 
+		@SuppressWarnings("unused")
 		public String getName() {
 			return name;
 		}
 
+		@SuppressWarnings("unused")
 		public void setName(String name) {
 			this.name = name;
 		}
 
+		@SuppressWarnings("unused")
 		public String getDescription() {
 			return description;
 		}
 
+		@SuppressWarnings("unused")
 		public void setDescription(String description) {
 			this.description = description;
 		}

@@ -27,6 +27,7 @@ import static org.junit.Assert.*;
  * @author Adrian Colyer
  * @author Chris Beams
  */
+@SuppressWarnings("resource")
 public class AnnotationBindingTests {
 
 	private AnnotatedTestBean testBean;

@@ -377,6 +377,7 @@ public class MappingJackson2HttpMessageConverterTests {
 		assertThat(result, not(containsString("\"property2\":\"value\"")));
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void jsonp() throws Exception {
 		MappingJacksonValue jacksonValue = new MappingJacksonValue("foo");
@@ -389,6 +390,7 @@ public class MappingJackson2HttpMessageConverterTests {
 		assertEquals("/**/callback(\"foo\");", outputMessage.getBodyAsString(Charset.forName("UTF-8")));
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void jsonpAndJsonView() throws Exception {
 		MockHttpOutputMessage outputMessage = new MockHttpOutputMessage();

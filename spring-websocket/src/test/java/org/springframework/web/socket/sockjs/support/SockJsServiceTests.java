@@ -149,6 +149,7 @@ public class SockJsServiceTests extends AbstractHttpRequestTests {
 		assertEquals("foobar:123", this.servletResponse.getHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN));
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test  // SPR-11919
 	public void handleInfoGetWildflyNPE() throws IOException {
 		HttpServletResponse mockResponse = mock(HttpServletResponse.class);

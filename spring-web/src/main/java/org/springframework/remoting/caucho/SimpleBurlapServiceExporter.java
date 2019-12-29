@@ -48,6 +48,7 @@ import org.springframework.util.FileCopyUtils;
  * @deprecated as of Spring 4.0, since Burlap hasn't evolved in years
  * and is effectively retired (in contrast to its sibling Hessian)
  */
+@SuppressWarnings("restriction")
 @Deprecated
 @UsesSunHttpServer
 public class SimpleBurlapServiceExporter extends BurlapExporter implements HttpHandler {
@@ -55,7 +56,6 @@ public class SimpleBurlapServiceExporter extends BurlapExporter implements HttpH
 	/**
 	 * Processes the incoming Burlap request and creates a Burlap response.
 	 */
-	@SuppressWarnings("restriction")
 	@Override
 	public void handle(HttpExchange exchange) throws IOException {
 		if (!"POST".equals(exchange.getRequestMethod())) {

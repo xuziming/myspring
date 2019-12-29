@@ -36,47 +36,43 @@ public final class SPR3064Tests {
 
 	private Service service;
 
-
 	@Test
 	public void testServiceIsAdvised() {
-		ClassPathXmlApplicationContext ctx =
-			new ClassPathXmlApplicationContext(getClass().getSimpleName() + ".xml", getClass());
+		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(
+				getClass().getSimpleName() + ".xml", getClass());
 
 		service = (Service) ctx.getBean("service");
 
 		try {
 			this.service.serveMe();
 			fail("service operation has not been advised by transaction interceptor");
+		} catch (RuntimeException ex) {
+			assertEquals("advice invoked", ex.getMessage());
 		}
-		catch (RuntimeException ex) {
-			assertEquals("advice invoked",ex.getMessage());
-		}
+		ctx.close();
 	}
 
 }
-
 
 @Retention(RetentionPolicy.RUNTIME)
 @interface Transaction {
 }
 
-
 @Aspect
 class TransactionInterceptor {
 
-	@Around(value="execution(* *..Service.*(..)) && @annotation(transaction)")
-	public Object around(ProceedingJoinPoint pjp, Transaction transaction) throws Throwable {
+	@Around(value = "execution(* *..Service.*(..)) && @annotation(transaction)")
+	public Object around(ProceedingJoinPoint pjp, Transaction transaction)
+			throws Throwable {
 		throw new RuntimeException("advice invoked");
-		//return pjp.proceed();
+		// return pjp.proceed();
 	}
 }
-
 
 interface Service {
 
 	void serveMe();
 }
-
 
 class ServiceImpl implements Service {
 

@@ -45,6 +45,7 @@ import org.springframework.util.FileCopyUtils;
  * @see org.springframework.remoting.caucho.HessianProxyFactoryBean
  * @see org.springframework.remoting.httpinvoker.SimpleHttpInvokerServiceExporter
  */
+@SuppressWarnings("restriction")
 @UsesSunHttpServer
 public class SimpleHessianServiceExporter extends HessianExporter implements HttpHandler {
 

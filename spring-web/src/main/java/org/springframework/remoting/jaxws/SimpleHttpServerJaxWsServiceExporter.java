@@ -48,6 +48,7 @@ import org.springframework.lang.UsesSunHttpServer;
  * @see javax.xml.ws.Endpoint#publish(Object)
  * @see SimpleJaxWsServiceExporter
  */
+@SuppressWarnings("restriction")
 @UsesSunHttpServer
 public class SimpleHttpServerJaxWsServiceExporter extends AbstractJaxWsServiceExporter {
 

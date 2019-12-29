@@ -54,6 +54,7 @@ import static org.junit.Assert.*;
  * @author Chris Beams
  * @author Juergen Hoeller
  */
+@SuppressWarnings({ "resource" })
 public class AutowiredConfigurationTests {
 
 	@Test

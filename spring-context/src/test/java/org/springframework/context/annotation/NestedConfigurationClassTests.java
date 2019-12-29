@@ -32,6 +32,7 @@ import static org.junit.Assert.*;
  * @author Juergen Hoeller
  * @since 3.1
  */
+@SuppressWarnings("resource")
 public class NestedConfigurationClassTests {
 
 	@Test

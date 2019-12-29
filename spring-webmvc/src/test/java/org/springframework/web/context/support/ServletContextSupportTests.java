@@ -40,6 +40,7 @@ import static org.junit.Assert.*;
  * @author Chris Beams
  * @since 22.12.2004
  */
+@SuppressWarnings("resource")
 public class ServletContextSupportTests {
 
 	@Test

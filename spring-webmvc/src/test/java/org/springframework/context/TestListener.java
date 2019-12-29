@@ -6,6 +6,7 @@ package org.springframework.context;
  * @author Rod Johnson
  * @since January 21, 2001
  */
+@SuppressWarnings("rawtypes")
 public class TestListener implements ApplicationListener {
 
 	private int eventCount;

@@ -61,6 +61,7 @@ public class CacheErrorHandlerTests {
 
 	@Before
 	public void setup() {
+		@SuppressWarnings("resource")
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
 		this.cache = context.getBean("mockCache", Cache.class);
 		this.cacheInterceptor = context.getBean(CacheInterceptor.class);

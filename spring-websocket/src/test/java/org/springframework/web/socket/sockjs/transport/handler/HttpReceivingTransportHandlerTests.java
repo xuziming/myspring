@@ -46,6 +46,7 @@ public class HttpReceivingTransportHandlerTests extends AbstractHttpRequestTests
 		assertEquals(204, this.servletResponse.getStatus());
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void readMessagesJsonp() throws Exception {
 		this.servletRequest.setContent("[\"x\"]".getBytes("UTF-8"));
@@ -55,6 +56,7 @@ public class HttpReceivingTransportHandlerTests extends AbstractHttpRequestTests
 		assertEquals("ok", this.servletResponse.getContentAsString());
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void readMessagesJsonpFormEncoded() throws Exception {
 		this.servletRequest.setContent("d=[\"x\"]".getBytes("UTF-8"));
@@ -65,6 +67,7 @@ public class HttpReceivingTransportHandlerTests extends AbstractHttpRequestTests
 		assertEquals("ok", this.servletResponse.getContentAsString());
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test  // SPR-10621
 	public void readMessagesJsonpFormEncodedWithEncoding() throws Exception {
 		this.servletRequest.setContent("d=[\"x\"]".getBytes("UTF-8"));

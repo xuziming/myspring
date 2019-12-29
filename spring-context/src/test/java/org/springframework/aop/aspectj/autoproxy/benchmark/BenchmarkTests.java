@@ -45,6 +45,7 @@ import static org.junit.Assert.*;
  * @author Rod Johnson
  * @author Chris Beams
  */
+@SuppressWarnings({ "resource" })
 public final class BenchmarkTests {
 
 	private static final Class<?> CLASS = BenchmarkTests.class;

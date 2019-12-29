@@ -47,6 +47,7 @@ import static org.junit.Assert.*;
 /**
  * @author Dave Syer
  */
+@SuppressWarnings("deprecation")
 public class VelocityRenderTests {
 
 	private StaticWebApplicationContext wac;

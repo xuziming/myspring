@@ -41,6 +41,7 @@ public class DeclareParentsDelegateRefTests {
 		noMethodsBean = (NoMethodsBean) ctx.getBean("noMethodsBean");
 		counter = (Counter) ctx.getBean("counter");
 		counter.reset();
+		ctx.close();
 	}
 
 	@Test

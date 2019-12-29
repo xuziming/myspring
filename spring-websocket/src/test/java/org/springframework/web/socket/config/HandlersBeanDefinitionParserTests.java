@@ -24,7 +24,6 @@ import java.util.Map;
 import java.util.concurrent.ScheduledFuture;
 
 import org.junit.Test;
-
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.server.ServerHttpRequest;
@@ -72,6 +71,7 @@ import static org.junit.Assert.*;
  * @author Brian Clozel
  * @author Rossen Stoyanchev
  */
+@SuppressWarnings("deprecation")
 public class HandlersBeanDefinitionParserTests {
 
 	private final GenericWebApplicationContext appContext = new GenericWebApplicationContext();

@@ -75,6 +75,7 @@ public class StreamingResponseBodyReturnValueHandler implements HandlerMethodRet
 			if (returnValue == null) {
 				mavContainer.setRequestHandled(true);
 				outputMessage.flush();
+				outputMessage.close();
 				return;
 			}
 		}
@@ -87,6 +88,7 @@ public class StreamingResponseBodyReturnValueHandler implements HandlerMethodRet
 
 		Callable<Void> callable = new StreamingResponseBodyTask(outputMessage.getBody(), streamingBody);
 		WebAsyncUtils.getAsyncManager(webRequest).startCallableProcessing(callable, mavContainer);
+		outputMessage.close();
 	}
 
 

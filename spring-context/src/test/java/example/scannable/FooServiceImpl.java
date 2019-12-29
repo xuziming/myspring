@@ -46,6 +46,7 @@ import org.springframework.util.Assert;
 public abstract class FooServiceImpl implements FooService {
 
 	// Just to test ASM5's bytecode parsing of INVOKESPECIAL/STATIC on interfaces
+	@SuppressWarnings("unused")
 	private static final Comparator<MessageBean> COMPARATOR_BY_MESSAGE = Comparator.comparing(MessageBean::getMessage);
 
 

@@ -152,15 +152,16 @@ public class AnnotationDrivenEventListenerTests {
 
 	@Test
 	public void methodSignatureNoEvent() {
-		AnnotationConfigApplicationContext failingContext =
+		AnnotationConfigApplicationContext ctx =
 				new AnnotationConfigApplicationContext();
-		failingContext.register(BasicConfiguration.class,
+		ctx.register(BasicConfiguration.class,
 				InvalidMethodSignatureEventListener.class);
 
 		this.thrown.expect(BeanInitializationException.class);
 		this.thrown.expectMessage(InvalidMethodSignatureEventListener.class.getName());
 		this.thrown.expectMessage("cannotBeCalled");
-		failingContext.refresh();
+		ctx.refresh();
+		ctx.close();
 	}
 
 	@Test

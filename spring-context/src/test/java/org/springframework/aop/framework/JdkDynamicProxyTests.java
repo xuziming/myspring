@@ -211,6 +211,7 @@ public class JdkDynamicProxyTests extends AbstractAopProxyTests implements Seria
 
 	public interface VarargTestInterface {
 
+		@SuppressWarnings("unchecked")
 		<V extends MyInterface> boolean doWithVarargs(V... args);
 	}
 

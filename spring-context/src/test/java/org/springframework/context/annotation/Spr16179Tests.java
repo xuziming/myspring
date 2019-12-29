@@ -40,6 +40,7 @@ public class Spr16179Tests {
 		assertSame(bf.getBean("pageAssembler"), bf.getBean(AssemblerInjection.class).assembler4);
 		assertSame(bf.getBean("pageAssembler"), bf.getBean(AssemblerInjection.class).assembler5);
 		assertSame(bf.getBean("pageAssembler"), bf.getBean(AssemblerInjection.class).assembler6);
+		bf.close();
 	}
 
 
@@ -69,6 +70,7 @@ public class Spr16179Tests {
 		@Autowired(required = false)
 		Assembler<Page<String>> assembler2;
 
+		@SuppressWarnings("rawtypes")
 		@Autowired(required = false)
 		Assembler<Page> assembler3;
 

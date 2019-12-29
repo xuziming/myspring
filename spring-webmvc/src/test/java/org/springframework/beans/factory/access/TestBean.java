@@ -23,6 +23,7 @@ import java.util.List;
  *
  * @author Colin Sampaleanu
  */
+@SuppressWarnings({ "rawtypes" })
 public class TestBean {
 
 	private String name;

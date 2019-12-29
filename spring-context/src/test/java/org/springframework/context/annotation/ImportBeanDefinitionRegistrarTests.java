@@ -44,6 +44,7 @@ import static org.junit.Assert.*;
  * @author Oliver Gierke
  * @author Chris Beams
  */
+@SuppressWarnings("resource")
 public class ImportBeanDefinitionRegistrarTests {
 
 	@Test

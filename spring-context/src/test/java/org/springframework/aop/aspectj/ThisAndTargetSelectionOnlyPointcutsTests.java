@@ -63,6 +63,7 @@ public final class ThisAndTargetSelectionOnlyPointcutsTests {
 		thisAsClassAndTargetAsClassCounter.reset();
 		thisAsInterfaceAndTargetAsInterfaceCounter.reset();
 		thisAsInterfaceAndTargetAsClassCounter.reset();
+		ctx.close();
 	}
 
 	@Test

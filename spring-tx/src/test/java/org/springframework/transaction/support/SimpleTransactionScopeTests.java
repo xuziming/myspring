@@ -33,10 +33,10 @@ import static org.junit.Assert.*;
 /**
  * @author Juergen Hoeller
  */
+@SuppressWarnings("resource")
 public class SimpleTransactionScopeTests {
 
 	@Test
-	@SuppressWarnings("resource")
 	public void getFromScope() throws Exception {
 		GenericApplicationContext context = new GenericApplicationContext();
 		context.getBeanFactory().registerScope("tx", new SimpleTransactionScope());

@@ -324,6 +324,7 @@ public abstract class AbstractAdaptableMessageListener
 		response.setJMSCorrelationID(correlation);
 	}
 
+	@SuppressWarnings("rawtypes")
 	private Destination getResponseDestination(Message request, Message response, Session session, Object result)
 			throws JMSException {
 
@@ -501,6 +502,7 @@ public abstract class AbstractAdaptableMessageListener
 			 * this case, its payload is returned.
 			 * @return the payload of the message
 			 */
+			@SuppressWarnings("rawtypes")
 			private Object unwrapPayload() throws JMSException {
 				Object payload = extractPayload(this.message);
 				if (payload instanceof org.springframework.messaging.Message) {

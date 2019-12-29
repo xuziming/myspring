@@ -45,6 +45,7 @@ import static org.mockito.BDDMockito.*;
  * @author Rick Evans
  * @author Juergen Hoeller
  */
+@SuppressWarnings("resource")
 public class BshScriptFactoryTests {
 
 	@SuppressWarnings("unlikely-arg-type")

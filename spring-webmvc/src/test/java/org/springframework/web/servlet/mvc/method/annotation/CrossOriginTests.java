@@ -72,7 +72,7 @@ public class CrossOriginTests {
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
 
-
+	@SuppressWarnings("resource")
 	@Before
 	public void setUp() {
 		StaticWebApplicationContext wac = new StaticWebApplicationContext();

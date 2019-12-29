@@ -28,6 +28,7 @@ import static org.junit.Assert.*;
 /**
  * @author Rob Harrop
  */
+@SuppressWarnings("deprecation")
 public class JasperReportViewResolverTests {
 
 	@Test

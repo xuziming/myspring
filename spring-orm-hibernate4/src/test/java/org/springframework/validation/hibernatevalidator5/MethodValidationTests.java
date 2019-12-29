@@ -130,8 +130,8 @@ public class MethodValidationTests {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(
 				LazyMethodValidationConfig.class, CustomValidatorBean.class, MyValidBean.class);
 		ctx.getBean(MyValidInterface.class).myValidMethod("value", 5);
+		ctx.close();
 	}
-
 
 	@MyStereotype
 	public static class MyValidBean implements MyValidInterface<String> {

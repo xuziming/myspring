@@ -24,6 +24,7 @@ import static org.junit.Assert.*;
  * @author Mark Fisher
  * @author Chris Beams
  */
+@SuppressWarnings({ "resource" })
 public class ApplicationContextLifecycleTests {
 
 	@Test

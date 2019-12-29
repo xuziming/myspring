@@ -44,6 +44,7 @@ public class ResourceServletTests {
 		testInvalidResourceUrl("/resources/*", "/resources/..\\Servlet2?param=111");
 	}
 
+	@SuppressWarnings("deprecation")
 	private void testInvalidResourceUrl(String allowedResources, String resourceParam)
 			throws ServletException, IOException {
 

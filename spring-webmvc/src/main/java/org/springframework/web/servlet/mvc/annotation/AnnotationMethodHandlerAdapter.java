@@ -522,7 +522,6 @@ public class AnnotationMethodHandlerAdapter extends WebContentGenerator
 	/**
 	 * Servlet-specific subclass of {@code HandlerMethodResolver}.
 	 */
-	@SuppressWarnings("deprecation")
 	private class ServletHandlerMethodResolver extends org.springframework.web.bind.annotation.support.HandlerMethodResolver {
 
 		private final Map<Method, RequestMappingInfo> mappings = new HashMap<Method, RequestMappingInfo>();
@@ -768,7 +767,6 @@ public class AnnotationMethodHandlerAdapter extends WebContentGenerator
 	/**
 	 * Servlet-specific subclass of {@code HandlerMethodInvoker}.
 	 */
-	@SuppressWarnings("deprecation")
 	private class ServletHandlerMethodInvoker extends org.springframework.web.bind.annotation.support.HandlerMethodInvoker {
 
 		private boolean responseArgumentUsed = false;

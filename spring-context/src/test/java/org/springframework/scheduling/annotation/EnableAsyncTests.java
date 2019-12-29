@@ -62,6 +62,7 @@ import static org.junit.Assert.*;
  * @author Stephane Nicoll
  * @since 3.1
  */
+@SuppressWarnings("resource")
 public class EnableAsyncTests {
 
 	@Test

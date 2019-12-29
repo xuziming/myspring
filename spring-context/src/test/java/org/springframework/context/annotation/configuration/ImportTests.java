@@ -17,7 +17,6 @@
 package org.springframework.context.annotation.configuration;
 
 import org.junit.Test;
-
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -341,6 +340,7 @@ public class ImportTests {
 		System.out.println(ctx.getBeanFactory());
 		assertThat(ctx.getBeanNamesForType(B.class)[0], is("config-b"));
 		assertThat(ctx.getBeanNamesForType(A.class)[0], is("config-a"));
+		ctx.close();
 	}
 
 	@Configuration("config-a")

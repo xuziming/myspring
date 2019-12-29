@@ -40,6 +40,7 @@ public class Spr8808Tests {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
 		ctx.register(Config.class);
 		ctx.refresh();
+		ctx.close();
 	}
 
 }

@@ -1007,6 +1007,7 @@ public class BindTagTests extends AbstractTagTests {
 	 * SPR-4022
 	 */
 	
+	@SuppressWarnings("deprecation")
 	@Test
 	public void nestingInFormTag() throws JspException {
 		PageContext pc = createPageContext();

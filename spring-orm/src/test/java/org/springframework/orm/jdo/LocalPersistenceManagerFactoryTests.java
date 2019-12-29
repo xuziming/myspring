@@ -33,6 +33,7 @@ import static org.mockito.BDDMockito.*;
  * @author Juergen Hoeller
  * @author Phillip Webb
  */
+@SuppressWarnings({ "rawtypes" })
 public class LocalPersistenceManagerFactoryTests {
 
 	@Test

@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class Spr7766Controller {
 
+	@SuppressWarnings("deprecation")
 	@RequestMapping("/colors")
 	public void handler(@RequestParam List<Color> colors) {
 		Assert.isTrue(colors.size() == 2);
 		Assert.isTrue(colors.get(0).equals(Color.WHITE));
 		Assert.isTrue(colors.get(1).equals(Color.BLACK));
 	}
+
 }

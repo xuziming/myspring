@@ -32,6 +32,7 @@ import static org.junit.Assert.*;
 /**
  * @author Juergen Hoeller
  */
+@SuppressWarnings("resource")
 public class ThreadPoolExecutorFactoryBeanTests {
 
 	@Test

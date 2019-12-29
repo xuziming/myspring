@@ -49,6 +49,7 @@ import static org.junit.Assert.*;
  * @author Chris Beams
  * @since 02.10.2003
  */
+@SuppressWarnings({ "rawtypes", "resource" })
 public class BeanFactoryPostProcessorTests {
 
 	@Test

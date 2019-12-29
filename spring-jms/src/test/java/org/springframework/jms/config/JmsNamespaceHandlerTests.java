@@ -77,6 +77,7 @@ public class JmsNamespaceHandlerTests {
 	}
 
 
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void testBeansCreated() {
 		Map<String, ?> containers = context.getBeansOfType(DefaultMessageListenerContainer.class);

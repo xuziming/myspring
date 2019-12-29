@@ -40,6 +40,7 @@ import static org.junit.Assert.*;
  * @author Juergen Hoeller
  * @author Chris Beams
  */
+@SuppressWarnings("resource")
 public class JRubyScriptFactoryTests {
 
 	private static final String RUBY_SCRIPT_SOURCE_LOCATOR =
@@ -120,6 +121,7 @@ public class JRubyScriptFactoryTests {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testCtorWithNullScriptSourceLocator() throws Exception {
 		try {
@@ -130,6 +132,7 @@ public class JRubyScriptFactoryTests {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testCtorWithEmptyScriptSourceLocator() throws Exception {
 		try {
@@ -140,6 +143,7 @@ public class JRubyScriptFactoryTests {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testCtorWithWhitespacedScriptSourceLocator() throws Exception {
 		try {
@@ -150,6 +154,7 @@ public class JRubyScriptFactoryTests {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testCtorWithNullScriptInterfacesArray() throws Exception {
 		try {
@@ -160,6 +165,7 @@ public class JRubyScriptFactoryTests {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testCtorWithEmptyScriptInterfacesArray() throws Exception {
 		try {

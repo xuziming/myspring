@@ -69,6 +69,7 @@ import static org.mockito.Mockito.*;
  *
  * @author Rossen Stoyanchev
  */
+@SuppressWarnings("rawtypes")
 public class StompSubProtocolHandlerTests {
 
 	private static final byte[] EMPTY_PAYLOAD = new byte[0];
@@ -79,7 +80,6 @@ public class StompSubProtocolHandlerTests {
 
 	private MessageChannel channel;
 
-	@SuppressWarnings("rawtypes")
 	private ArgumentCaptor<Message> messageCaptor;
 
 

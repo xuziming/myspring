@@ -31,6 +31,7 @@ public class Spr8955Tests {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
 		ctx.scan("org.springframework.context.annotation.configuration.spr8955");
 		ctx.refresh();
+		ctx.close();
 	}
 
 }

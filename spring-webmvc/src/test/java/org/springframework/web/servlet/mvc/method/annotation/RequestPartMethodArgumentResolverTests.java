@@ -63,6 +63,7 @@ import static org.mockito.BDDMockito.*;
  * @author Rossen Stoyanchev
  * @author Brian Clozel
  */
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class RequestPartMethodArgumentResolverTests {
 
 	private RequestPartMethodArgumentResolver resolver;
@@ -95,7 +96,6 @@ public class RequestPartMethodArgumentResolverTests {
 	private MockMultipartHttpServletRequest multipartRequest;
 
 
-	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() throws Exception {
 		Method method = ReflectionUtils.findMethod(getClass(), "handle", (Class<?>[]) null);

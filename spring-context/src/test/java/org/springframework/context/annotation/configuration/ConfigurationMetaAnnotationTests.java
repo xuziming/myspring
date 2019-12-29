@@ -45,6 +45,7 @@ public class ConfigurationMetaAnnotationTests {
 		TestBean a = ctx.getBean("a", TestBean.class);
 		TestBean b = ctx.getBean("b", TestBean.class);
 		assertThat(b, sameInstance(a.getSpouse()));
+		ctx.close();
 	}
 
 

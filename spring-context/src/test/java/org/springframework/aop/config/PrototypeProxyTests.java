@@ -24,6 +24,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author Juergen Hoeller
  * @author Chris Beams
  */
+@SuppressWarnings("resource")
 public final class PrototypeProxyTests {
 
 	@Test

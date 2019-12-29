@@ -35,6 +35,7 @@ public class ConversionServiceContextConfigTests {
 		assertEquals("value1", client.getBars().get(0).getValue());
 		assertEquals("value2", client.getBars().get(1).getValue());
 		assertTrue(client.isBool());
+		context.close();
 	}
 
 }

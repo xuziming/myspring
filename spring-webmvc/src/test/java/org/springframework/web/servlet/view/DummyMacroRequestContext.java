@@ -32,6 +32,7 @@ import org.springframework.web.util.UriTemplate;
  * @since 25.01.2005
  * @see org.springframework.web.servlet.support.RequestContext
  */
+@SuppressWarnings("rawtypes")
 public class DummyMacroRequestContext {
 
 	private HttpServletRequest request;

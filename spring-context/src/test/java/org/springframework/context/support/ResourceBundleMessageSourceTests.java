@@ -35,6 +35,7 @@ import static org.junit.Assert.*;
  * @author Juergen Hoeller
  * @since 03.02.2004
  */
+@SuppressWarnings("resource")
 public class ResourceBundleMessageSourceTests {
 
 	@Test

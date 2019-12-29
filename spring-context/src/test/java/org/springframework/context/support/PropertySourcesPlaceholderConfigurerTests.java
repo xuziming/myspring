@@ -396,6 +396,7 @@ public class PropertySourcesPlaceholderConfigurerTests {
 			return name;
 		}
 
+		@SuppressWarnings("unused")
 		public void setName(Optional<String> name) {
 			this.name = name;
 		}

@@ -52,6 +52,7 @@ import static org.mockito.Mockito.mock;
  * @author Rossen Stoyanchev
  * @since 4.3
  */
+@SuppressWarnings("rawtypes")
 public abstract class AbstractRequestAttributesArgumentResolverTests {
 
 	private ServletWebRequest webRequest;

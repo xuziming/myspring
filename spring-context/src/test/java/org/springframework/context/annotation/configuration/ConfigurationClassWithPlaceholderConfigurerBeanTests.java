@@ -62,6 +62,7 @@ public class ConfigurationClassWithPlaceholderConfigurerBeanTests {
 
 		TestBean testBean = ctx.getBean(TestBean.class);
 		assertThat(testBean.getName(), nullValue());
+		ctx.close();
 	}
 
 	@Test
@@ -75,6 +76,7 @@ public class ConfigurationClassWithPlaceholderConfigurerBeanTests {
 
 		TestBean testBean = ctx.getBean(TestBean.class);
 		assertThat(testBean.getName(), equalTo("foo"));
+		ctx.close();
 	}
 
 	@Test
@@ -86,6 +88,7 @@ public class ConfigurationClassWithPlaceholderConfigurerBeanTests {
 
 		TestBean testBean = ctx.getBean(TestBean.class);
 		assertThat(testBean.getName(), equalTo("bar"));
+		ctx.close();
 	}
 
 

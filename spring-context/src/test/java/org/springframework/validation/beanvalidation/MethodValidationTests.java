@@ -45,6 +45,7 @@ import static org.junit.Assert.*;
  * @author Juergen Hoeller
  * @since 3.1
  */
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class MethodValidationTests {
 
 	@Test
@@ -119,6 +120,7 @@ public class MethodValidationTests {
 		}
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void testLazyValidatorForMethodValidation() {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(

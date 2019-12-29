@@ -33,6 +33,7 @@ public class ScriptTemplateViewResolverTests {
 		ScriptTemplateViewResolver resolver = new ScriptTemplateViewResolver();
 		Assert.assertEquals(ScriptTemplateView.class, resolver.requiredViewClass());
 		DirectFieldAccessor viewAccessor = new DirectFieldAccessor(resolver);
+		@SuppressWarnings("rawtypes")
 		Class viewClass = (Class) viewAccessor.getPropertyValue("viewClass");
 		Assert.assertEquals(ScriptTemplateView.class, viewClass);
 	}

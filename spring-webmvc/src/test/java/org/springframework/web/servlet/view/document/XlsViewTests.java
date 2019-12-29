@@ -70,6 +70,7 @@ public class XlsViewTests {
 		Row row = sheet.getRow(0);
 		Cell cell = row.getCell(0);
 		assertEquals("Test Value", cell.getStringCellValue());
+		wb.close();
 	}
 
 	@Test
@@ -93,6 +94,7 @@ public class XlsViewTests {
 		Row row = sheet.getRow(0);
 		Cell cell = row.getCell(0);
 		assertEquals("Test Value", cell.getStringCellValue());
+		wb.close();
 	}
 
 	@Test
@@ -116,6 +118,7 @@ public class XlsViewTests {
 		Row row = sheet.getRow(0);
 		Cell cell = row.getCell(0);
 		assertEquals("Test Value", cell.getStringCellValue());
+		wb.close();
 	}
 
 }

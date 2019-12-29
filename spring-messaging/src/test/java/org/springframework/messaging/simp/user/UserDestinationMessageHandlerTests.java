@@ -41,6 +41,7 @@ import org.springframework.messaging.support.MessageBuilder;
  * Unit tests for
  * {@link org.springframework.messaging.simp.user.UserDestinationMessageHandler}.
  */
+@SuppressWarnings("rawtypes")
 public class UserDestinationMessageHandlerTests {
 
 	private static final String SESSION_ID = "123";

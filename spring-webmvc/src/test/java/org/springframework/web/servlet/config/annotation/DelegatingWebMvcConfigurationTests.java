@@ -54,6 +54,7 @@ import static org.mockito.BDDMockito.*;
  *
  * @author Rossen Stoyanchev
  */
+@SuppressWarnings({ "rawtypes" })
 public class DelegatingWebMvcConfigurationTests {
 
 	private DelegatingWebMvcConfiguration delegatingConfig;

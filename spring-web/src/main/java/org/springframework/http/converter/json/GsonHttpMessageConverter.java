@@ -115,7 +115,6 @@ public class GsonHttpMessageConverter extends AbstractGenericHttpMessageConverte
 
 
 	@Override
-	@SuppressWarnings("deprecation")
 	public Object read(Type type, Class<?> contextClass, HttpInputMessage inputMessage)
 			throws IOException, HttpMessageNotReadableException {
 
@@ -124,7 +123,6 @@ public class GsonHttpMessageConverter extends AbstractGenericHttpMessageConverte
 	}
 
 	@Override
-	@SuppressWarnings("deprecation")
 	protected Object readInternal(Class<?> clazz, HttpInputMessage inputMessage)
 			throws IOException, HttpMessageNotReadableException {
 

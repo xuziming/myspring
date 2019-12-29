@@ -167,6 +167,7 @@ import static org.junit.Assert.assertTrue;
  * @author Kazuki Shimizu
  * @author Sam Brannen
  */
+@SuppressWarnings("deprecation")
 public class MvcNamespaceTests {
 
 	public static final String VIEWCONTROLLER_BEAN_NAME =
@@ -359,6 +360,7 @@ public class MvcNamespaceTests {
 		assertTrue(chain.getInterceptors()[4] instanceof WebRequestHandlerInterceptorAdapter);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testResources() throws Exception {
 		loadBeanDefinitions("mvc-config-resources.xml");

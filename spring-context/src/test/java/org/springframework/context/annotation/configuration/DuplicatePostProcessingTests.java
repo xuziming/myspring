@@ -35,6 +35,7 @@ import org.springframework.context.annotation.Bean;
  */
 public class DuplicatePostProcessingTests {
 
+	@SuppressWarnings("resource")
 	@Test
 	public void testWithFactoryBeanAndEventListener() {
 		new AnnotationConfigApplicationContext(Config.class).getBean(ExampleBean.class);

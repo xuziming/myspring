@@ -52,6 +52,7 @@ public class HibernateEntityManagerFactoryIntegrationTests extends
 		assertNotNull(hibernateEntityManager.getSession());
 	}
 
+	@SuppressWarnings("cast")
 	public void testCanUnwrapAopProxy() {
 		EntityManager em = entityManagerFactory.createEntityManager();
 		EntityManager proxy = ProxyFactory.getProxy(EntityManager.class, new SingletonTargetSource(em));

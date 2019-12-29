@@ -46,6 +46,7 @@ import static org.junit.Assert.*;
  * @author Rod Johnson
  * @author Juergen Hoeller
  */
+@SuppressWarnings("deprecation")
 public class VelocityConfigurerTests {
 
 	@Test
@@ -92,7 +93,6 @@ public class VelocityConfigurerTests {
 	}
 
 	@Test
-	@SuppressWarnings("deprecation")
 	public void velocityEngineFactoryBeanWithNonFileResourceLoaderPath() throws Exception {
 		VelocityEngineFactoryBean vefb = new VelocityEngineFactoryBean();
 		vefb.setResourceLoaderPath("file:/mydir");
@@ -144,7 +144,6 @@ public class VelocityConfigurerTests {
 	}
 
 	@Test
-	@SuppressWarnings("deprecation")
 	public void velocityConfigurerWithCsvPathAndNonFileAccess() throws IOException, VelocityException {
 		VelocityConfigurer vc = new VelocityConfigurer();
 		vc.setResourceLoaderPath("file:/mydir,file:/yourdir");

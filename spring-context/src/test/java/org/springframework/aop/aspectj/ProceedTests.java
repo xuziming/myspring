@@ -49,6 +49,7 @@ public final class ProceedTests {
 		testBean = (SimpleBean) ctx.getBean("testBean");
 		firstTestAspect = (ProceedTestingAspect) ctx.getBean("firstTestAspect");
 		secondTestAspect = (ProceedTestingAspect) ctx.getBean("secondTestAspect");
+		ctx.close();
 	}
 
 	@Test

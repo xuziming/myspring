@@ -41,7 +41,7 @@ import static org.junit.Assert.*;
  * @author Sam Brannen
  * @since 16.05.2003
  */
-@SuppressWarnings("deprecation")
+@SuppressWarnings({ "deprecation", "restriction" })
 public class CauchoRemotingTests {
 
 	@Rule

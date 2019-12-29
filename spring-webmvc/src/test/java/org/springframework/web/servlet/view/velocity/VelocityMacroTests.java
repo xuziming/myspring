@@ -48,6 +48,7 @@ import static org.junit.Assert.*;
  * @author Juergen Hoeller
  * @since 18.06.2004
  */
+@SuppressWarnings({ "deprecation" })
 public class VelocityMacroTests {
 
 	private static final String TEMPLATE_FILE = "test.vm";

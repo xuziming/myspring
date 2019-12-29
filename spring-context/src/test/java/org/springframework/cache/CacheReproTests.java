@@ -53,6 +53,7 @@ import static org.mockito.Mockito.*;
  * @author Juergen Hoeller
  * @author Stephane Nicoll
  */
+@SuppressWarnings({ "resource" })
 public class CacheReproTests {
 
 	@Rule

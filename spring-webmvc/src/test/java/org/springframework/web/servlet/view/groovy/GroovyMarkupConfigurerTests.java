@@ -100,6 +100,7 @@ public class GroovyMarkupConfigurerTests {
 		assertFalse(configuration.isCacheTemplates());
 	}
 
+	@SuppressWarnings("resource")
 	@Test
 	public void parentLoader() throws Exception {
 
@@ -121,6 +122,7 @@ public class GroovyMarkupConfigurerTests {
 				Matchers.endsWith("org/springframework/web/servlet/view/groovy/"));
 		assertThat(Arrays.asList(urlClassLoader.getURLs()).get(1).toString(),
 				Matchers.endsWith("org/springframework/web/servlet/view/"));
+		urlClassLoader.close();
 	}
 
 	private class TestTemplateEngine extends MarkupTemplateEngine {

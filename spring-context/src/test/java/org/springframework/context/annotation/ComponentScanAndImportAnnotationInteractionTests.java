@@ -28,6 +28,7 @@ import org.springframework.context.annotation.componentscan.simple.SimpleCompone
  * @author Chris Beams
  * @since 3.1
  */
+@SuppressWarnings("resource")
 public class ComponentScanAndImportAnnotationInteractionTests {
 
 	@Test

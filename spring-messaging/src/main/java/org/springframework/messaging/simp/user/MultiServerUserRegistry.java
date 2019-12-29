@@ -219,6 +219,7 @@ public class MultiServerUserRegistry implements SimpUserRegistry, SmartApplicati
 			}
 		}
 
+		@SuppressWarnings("unused")
 		public void setId(String id) {
 			this.id = id;
 		}
@@ -227,6 +228,7 @@ public class MultiServerUserRegistry implements SimpUserRegistry, SmartApplicati
 			return this.id;
 		}
 
+		@SuppressWarnings("unused")
 		public void setUserMap(Map<String, TransferSimpUser> users) {
 			this.users = users;
 		}
@@ -300,6 +302,7 @@ public class MultiServerUserRegistry implements SimpUserRegistry, SmartApplicati
 			}
 		}
 
+		@SuppressWarnings("unused")
 		public void setName(String name) {
 			this.name = name;
 		}
@@ -330,6 +333,7 @@ public class MultiServerUserRegistry implements SimpUserRegistry, SmartApplicati
 			return null;
 		}
 
+		@SuppressWarnings("unused")
 		public void setSessions(Set<TransferSimpSession> sessions) {
 			this.sessions.addAll(sessions);
 		}
@@ -406,6 +410,7 @@ public class MultiServerUserRegistry implements SimpUserRegistry, SmartApplicati
 			}
 		}
 
+		@SuppressWarnings("unused")
 		public void setId(String id) {
 			this.id = id;
 		}
@@ -424,6 +429,7 @@ public class MultiServerUserRegistry implements SimpUserRegistry, SmartApplicati
 			return this.user;
 		}
 
+		@SuppressWarnings("unused")
 		public void setSubscriptions(Set<TransferSimpSubscription> subscriptions) {
 			this.subscriptions.addAll(subscriptions);
 		}
@@ -482,6 +488,7 @@ public class MultiServerUserRegistry implements SimpUserRegistry, SmartApplicati
 			this.destination = subscription.getDestination();
 		}
 
+		@SuppressWarnings("unused")
 		public void setId(String id) {
 			this.id = id;
 		}
@@ -500,6 +507,7 @@ public class MultiServerUserRegistry implements SimpUserRegistry, SmartApplicati
 			return this.session;
 		}
 
+		@SuppressWarnings("unused")
 		public void setDestination(String destination) {
 			this.destination = destination;
 		}

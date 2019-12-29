@@ -36,6 +36,7 @@ import static org.junit.Assert.*;
  * @author Juergen Hoeller
  * @since 3.0
  */
+@SuppressWarnings("resource")
 public class BeanValidationPostProcessorTests {
 
 	@Test

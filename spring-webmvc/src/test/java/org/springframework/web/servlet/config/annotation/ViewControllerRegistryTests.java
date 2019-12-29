@@ -37,6 +37,7 @@ import static org.junit.Assert.*;
  *
  * @author Rossen Stoyanchev
  */
+@SuppressWarnings("deprecation")
 public class ViewControllerRegistryTests {
 
 	private ViewControllerRegistry registry;

@@ -28,6 +28,7 @@ import static org.junit.Assert.*;
  * @author Juergen Hoeller
  * @author Chris Beams
  */
+@SuppressWarnings("resource")
 public class GenericApplicationContextTests {
 
 	@Test

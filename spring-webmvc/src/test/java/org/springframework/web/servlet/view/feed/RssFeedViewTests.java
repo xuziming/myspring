@@ -39,6 +39,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Arjen Poutsma
  */
+@SuppressWarnings("rawtypes")
 public class RssFeedViewTests {
 
 	private AbstractRssFeedView view;

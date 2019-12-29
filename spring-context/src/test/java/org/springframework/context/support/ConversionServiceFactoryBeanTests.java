@@ -22,8 +22,6 @@ import java.util.Map;
 import java.util.Set;
 
 import org.junit.Test;
-
-import org.springframework.context.ApplicationContext;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.core.convert.converter.Converter;
@@ -111,7 +109,7 @@ public class ConversionServiceFactoryBeanTests {
 	}
 
 	private void doTestConversionServiceInApplicationContext(String fileName, Class<?> resourceClass) {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext(fileName, getClass());
+		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(fileName, getClass());
 		ResourceTestBean tb = ctx.getBean("resourceTestBean", ResourceTestBean.class);
 		assertTrue(resourceClass.isInstance(tb.getResource()));
 		assertTrue(tb.getResourceArray().length > 0);
@@ -121,6 +119,7 @@ public class ConversionServiceFactoryBeanTests {
 		assertTrue(tb.getResourceArrayMap().size() == 1);
 		assertTrue(tb.getResourceArrayMap().get("key1").length > 0);
 		assertTrue(resourceClass.isInstance(tb.getResourceArrayMap().get("key1")[0]));
+		ctx.close();
 	}
 
 

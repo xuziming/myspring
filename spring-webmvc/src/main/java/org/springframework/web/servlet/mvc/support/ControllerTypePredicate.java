@@ -32,7 +32,6 @@ class ControllerTypePredicate {
 		return Controller.class.isAssignableFrom(beanClass);
 	}
 
-	@SuppressWarnings("deprecation")
 	public boolean isMultiActionControllerType(Class<?> beanClass) {
 		return org.springframework.web.servlet.mvc.multiaction.MultiActionController.class.isAssignableFrom(beanClass);
 	}

@@ -18,6 +18,7 @@ import static org.junit.Assert.*;
  * @author Juergen Hoeller
  * @author Dave Syer
  */
+@SuppressWarnings("deprecation")
 public class VelocityViewResolverTests {
 
 	@Test
