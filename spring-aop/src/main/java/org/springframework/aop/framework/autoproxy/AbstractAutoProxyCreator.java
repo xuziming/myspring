@@ -104,7 +104,6 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
 	 */
 	protected static final Object[] PROXY_WITHOUT_ADDITIONAL_INTERCEPTORS = new Object[0];
 
-
 	/** Logger available to subclasses */
 	protected final Log logger = LogFactory.getLog(getClass());
 
@@ -126,16 +125,11 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
 
 	private BeanFactory beanFactory;
 
-	private final Set<String> targetSourcedBeans =
-			Collections.newSetFromMap(new ConcurrentHashMap<String, Boolean>(16));
+	private final Set<String> targetSourcedBeans   = Collections.newSetFromMap(new ConcurrentHashMap<String, Boolean>(16));
+	private final Set<Object> earlyProxyReferences = Collections.newSetFromMap(new ConcurrentHashMap<Object, Boolean>(16));
 
-	private final Set<Object> earlyProxyReferences =
-			Collections.newSetFromMap(new ConcurrentHashMap<Object, Boolean>(16));
-
-	private final Map<Object, Class<?>> proxyTypes = new ConcurrentHashMap<Object, Class<?>>(16);
-
+	private final Map<Object, Class<?>> proxyTypes  = new ConcurrentHashMap<Object, Class<?>>(16);
 	private final Map<Object, Boolean> advisedBeans = new ConcurrentHashMap<Object, Boolean>(256);
-
 
 	/**
 	 * Set whether or not the proxy should be frozen, preventing advice
@@ -212,7 +206,6 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
 		return this.beanFactory;
 	}
 
-
 	@Override
 	public Class<?> predictBeanType(Class<?> beanClass, String beanName) {
 		if (this.proxyTypes.isEmpty()) {
@@ -273,9 +266,7 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
 	}
 
 	@Override
-	public PropertyValues postProcessPropertyValues(
-			PropertyValues pvs, PropertyDescriptor[] pds, Object bean, String beanName) {
-
+	public PropertyValues postProcessPropertyValues(PropertyValues pvs, PropertyDescriptor[] pds, Object bean, String beanName) {
 		return pvs;
 	}
 
@@ -285,6 +276,7 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
 	}
 
 	/**
+	 * bean 初始化后置处理方法
 	 * Create a proxy with the configured interceptors if the bean is
 	 * identified as one to proxy by the subclass.
 	 * @see #getAdvicesAndAdvisorsForBean
@@ -301,7 +293,6 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
 		return bean;
 	}
 
-
 	/**
 	 * Build a cache key for the given bean class and bean name.
 	 * <p>Note: As of 4.2.3, this implementation does not return a concatenated
@@ -315,14 +306,19 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
 	 */
 	protected Object getCacheKey(Class<?> beanClass, String beanName) {
 		if (StringUtils.hasLength(beanName)) {
-			return (FactoryBean.class.isAssignableFrom(beanClass) ?
-					BeanFactory.FACTORY_BEAN_PREFIX + beanName : beanName);
-		}
-		else {
+			return (FactoryBean.class.isAssignableFrom(beanClass) ? BeanFactory.FACTORY_BEAN_PREFIX + beanName : beanName);
+		} else {
 			return beanClass;
 		}
 	}
 
+	/**
+	 * Spring AOP创建代理对象的入口方法分析，过程比较简单，总结如下：
+	 * 1、若 bean 是 AOP 基础设施类型，则直接返回.
+	 * 2、为 bean 查找合适的通知器.
+	 * 3、如果通知器数组不为空，则为 bean 生成代理对象，并返回该对象.
+	 * 4、若数组为空，则返回原始 bean.
+	 */
 	/**
 	 * Wrap the given bean if necessary, i.e. if it is eligible for being proxied.
 	 * @param bean the raw bean instance
@@ -341,20 +337,26 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
 			return bean;
 		}
 
-		// TODO 如果是基础类比如 advice pointcut advisor 这些基础aop类则直接返回
+		// TODO 如果是基础设施类(Pointcut、Advice或Advisor等接口的实现类)，则不应该生成代理而直接返回bean
 		if (isInfrastructureClass(bean.getClass()) || shouldSkip(bean.getClass(), beanName)) {
 			this.advisedBeans.put(cacheKey, Boolean.FALSE);
 			return bean;
 		}
 
-	    // TODO 获取被代理类所有的拦截器
+	    // TODO 获取被代理类所有的拦截器(为目标bean查找合适的通知器)
 		// Create proxy if we have advice.
 		Object[] specificInterceptors = getAdvicesAndAdvisorsForBean(bean.getClass(), beanName, null);
+
+		// 若 specificInterceptors != null，即 specificInterceptors != DO_NOT_PROXY，则为 bean 生成代理对象，否则直接返回 bean
 		if (specificInterceptors != DO_NOT_PROXY) {
 			this.advisedBeans.put(cacheKey, Boolean.TRUE);
 			// TODO 创建代理
 			Object proxy = createProxy(bean.getClass(), beanName, specificInterceptors, new SingletonTargetSource(bean));
 			this.proxyTypes.put(cacheKey, proxy.getClass());
+			/*
+             * 返回代理对象，此时 IOC 容器输入 bean，得到 proxy.
+             * 此时，beanName对应的bean为代理对象，而非原始bean
+             */
 			return proxy;
 		}
 
@@ -375,14 +377,26 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
 	 * @see #shouldSkip
 	 */
 	protected boolean isInfrastructureClass(Class<?> beanClass) {
-		boolean retVal = Advice.class.isAssignableFrom(beanClass) ||
-				Pointcut.class.isAssignableFrom(beanClass) ||
-				Advisor.class.isAssignableFrom(beanClass) ||
-				AopInfrastructureBean.class.isAssignableFrom(beanClass);
-		if (retVal && logger.isTraceEnabled()) {
+		boolean isInfrastructureClass = isInfrastructureClass0(beanClass);
+		if (isInfrastructureClass && logger.isTraceEnabled()) {
 			logger.trace("Did not attempt to auto-proxy infrastructure class [" + beanClass.getName() + "]");
 		}
-		return retVal;
+		return isInfrastructureClass;
+	}
+
+	/** 基础类(The default implementation considers Advices, Advisors and AopInfrastructureBeans as infrastructure classes) */
+	private static final Class<?>[] INFRASTRUCTURE_CLASSES = { Advice.class, Pointcut.class, Advisor.class, AopInfrastructureBean.class };
+
+	/**
+	 * 是否基础类型
+	 */
+	private boolean isInfrastructureClass0(Class<?> beanClass) {
+		for (Class<?> infrastructureClass : INFRASTRUCTURE_CLASSES) {
+			if (infrastructureClass.isAssignableFrom(beanClass)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -410,15 +424,13 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
 	 */
 	protected TargetSource getCustomTargetSource(Class<?> beanClass, String beanName) {
 		// We can't create fancy target sources for directly registered singletons.
-		if (this.customTargetSourceCreators != null &&
-				this.beanFactory != null && this.beanFactory.containsBean(beanName)) {
+		if (customTargetSourceCreators != null && beanFactory != null && beanFactory.containsBean(beanName)) {
 			for (TargetSourceCreator tsc : this.customTargetSourceCreators) {
 				TargetSource ts = tsc.getTargetSource(beanClass, beanName);
 				if (ts != null) {
 					// Found a matching TargetSource.
 					if (logger.isDebugEnabled()) {
-						logger.debug("TargetSourceCreator [" + tsc +
-								" found custom TargetSource for bean with name '" + beanName + "'");
+						logger.debug("TargetSourceCreator [" + tsc + " found custom TargetSource for bean with name '" + beanName + "'");
 					}
 					return ts;
 				}
@@ -441,7 +453,6 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
 	 * @see #buildAdvisors
 	 */
 	protected Object createProxy(Class<?> beanClass, String beanName, Object[] specificInterceptors, TargetSource targetSource) {
-
 		if (this.beanFactory instanceof ConfigurableListableBeanFactory) {
 			AutoProxyUtils.exposeTargetClass((ConfigurableListableBeanFactory) this.beanFactory, beanName, beanClass);
 		}
@@ -453,8 +464,7 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
 		if (!proxyFactory.isProxyTargetClass()) {
 			if (shouldProxyTargetClass(beanClass, beanName)) {
 				proxyFactory.setProxyTargetClass(true);
-			}
-			else {
+			} else {
 				evaluateProxyInterfaces(beanClass, proxyFactory);
 			}
 		}
@@ -520,8 +530,7 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
 			if (commonInterceptors.length > 0) {
 				if (this.applyCommonInterceptorsFirst) {
 					allInterceptors.addAll(0, Arrays.asList(commonInterceptors));
-				}
-				else {
+				} else {
 					allInterceptors.addAll(Arrays.asList(commonInterceptors));
 				}
 			}
@@ -545,8 +554,11 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
 	 * @see #setInterceptorNames
 	 */
 	private Advisor[] resolveInterceptorNames() {
-		ConfigurableBeanFactory cbf = (this.beanFactory instanceof ConfigurableBeanFactory ?
-				(ConfigurableBeanFactory) this.beanFactory : null);
+		ConfigurableBeanFactory cbf = null;
+		if (this.beanFactory instanceof ConfigurableBeanFactory) {
+			cbf = (ConfigurableBeanFactory) this.beanFactory;
+		}
+
 		List<Advisor> advisors = new ArrayList<Advisor>();
 		for (String beanName : this.interceptorNames) {
 			if (cbf == null || !cbf.isCurrentlyInCreation(beanName)) {
@@ -565,9 +577,7 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
 	 * TargetSource and interfaces and will be used to create the proxy
 	 * immediately after this method returns
 	 */
-	protected void customizeProxyFactory(ProxyFactory proxyFactory) {
-	}
-
+	protected void customizeProxyFactory(ProxyFactory proxyFactory) {}
 
 	/**
 	 * Return whether the given bean is to be proxied, what additional
@@ -586,6 +596,6 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
 	 * @see #PROXY_WITHOUT_ADDITIONAL_INTERCEPTORS
 	 */
 	protected abstract Object[] getAdvicesAndAdvisorsForBean(
-			Class<?> beanClass, String beanName, TargetSource customTargetSource) throws BeansException;
+		Class<?> beanClass, String beanName, TargetSource customTargetSource) throws BeansException;
 
 }

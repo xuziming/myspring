@@ -57,8 +57,7 @@ public class TransactionInterceptor extends TransactionAspectSupport implements 
 	 * @see #setTransactionAttributes(java.util.Properties)
 	 * @see #setTransactionAttributeSource(TransactionAttributeSource)
 	 */
-	public TransactionInterceptor() {
-	}
+	public TransactionInterceptor() {}
 
 	/**
 	 * Create a new TransactionInterceptor.
@@ -84,7 +83,6 @@ public class TransactionInterceptor extends TransactionAspectSupport implements 
 		setTransactionAttributeSource(tas);
 	}
 
-
 	@Override
 	public Object invoke(final MethodInvocation invocation) throws Throwable {
 		// Work out the target class: may be {@code null}.
@@ -100,7 +98,6 @@ public class TransactionInterceptor extends TransactionAspectSupport implements 
 			}
 		});
 	}
-
 
 	//---------------------------------------------------------------------
 	// Serialization support

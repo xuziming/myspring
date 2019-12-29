@@ -605,13 +605,12 @@ public abstract class AbstractAspectJAdvice implements Advice, AspectJPrecedence
 	 * @throws Throwable in case of invocation failure
 	 */
 	protected Object invokeAdviceMethod(JoinPointMatch jpMatch, Object returnValue, Throwable ex) throws Throwable {
+		// 调用通知方法，并向其传递参数
 		return invokeAdviceMethodWithGivenArgs(argBinding(getJoinPoint(), jpMatch, returnValue, ex));
 	}
 
 	// As above, but in this case we are given the join point.
-	protected Object invokeAdviceMethod(JoinPoint jp, JoinPointMatch jpMatch, Object returnValue, Throwable t)
-			throws Throwable {
-
+	protected Object invokeAdviceMethod(JoinPoint jp, JoinPointMatch jpMatch, Object returnValue, Throwable t) throws Throwable {
 		return invokeAdviceMethodWithGivenArgs(argBinding(jp, jpMatch, returnValue, t));
 	}
 
@@ -623,14 +622,12 @@ public abstract class AbstractAspectJAdvice implements Advice, AspectJPrecedence
 		try {
 			ReflectionUtils.makeAccessible(this.aspectJAdviceMethod);
 			// TODO AopUtils.invokeJoinpointUsingReflection
+			// 通过反射调用通知方法
 			return this.aspectJAdviceMethod.invoke(this.aspectInstanceFactory.getAspectInstance(), actualArgs);
-		}
-		catch (IllegalArgumentException ex) {
-			throw new AopInvocationException("Mismatch on arguments to advice method [" +
-					this.aspectJAdviceMethod + "]; pointcut expression [" +
-					this.pointcut.getPointcutExpression() + "]", ex);
-		}
-		catch (InvocationTargetException ex) {
+		} catch (IllegalArgumentException ex) {
+			throw new AopInvocationException("Mismatch on arguments to advice method ["
+				+ this.aspectJAdviceMethod + "]; pointcut expression [" + this.pointcut.getPointcutExpression() + "]", ex);
+		} catch (InvocationTargetException ex) {
 			throw ex.getTargetException();
 		}
 	}

@@ -241,8 +241,7 @@ public class DataSourceTransactionManager extends AbstractPlatformTransactionMan
 		Connection con = null;
 
 		try {
-			if (!txObject.hasConnectionHolder() ||
-					txObject.getConnectionHolder().isSynchronizedWithTransaction()) {
+			if (!txObject.hasConnectionHolder() || txObject.getConnectionHolder().isSynchronizedWithTransaction()) {
 				Connection newCon = this.dataSource.getConnection();
 				if (logger.isDebugEnabled()) {
 					logger.debug("Acquired Connection [" + newCon + "] for JDBC transaction");
@@ -257,8 +256,8 @@ public class DataSourceTransactionManager extends AbstractPlatformTransactionMan
 			txObject.setPreviousIsolationLevel(previousIsolationLevel);
 
 			// Switch to manual commit if necessary. This is very expensive in some JDBC drivers,
-			// so we don't want to do it unnecessarily (for example if we've explicitly
-			// configured the connection pool to set it already).
+			// so we don't want to do it unnecessarily 
+			// (for example if we've explicitly configured the connection pool to set it already).
 			if (con.getAutoCommit()) {
 				txObject.setMustRestoreAutoCommit(true);
 				if (logger.isDebugEnabled()) {
@@ -279,9 +278,7 @@ public class DataSourceTransactionManager extends AbstractPlatformTransactionMan
 			if (txObject.isNewConnectionHolder()) {
 				TransactionSynchronizationManager.bindResource(getDataSource(), txObject.getConnectionHolder());
 			}
-		}
-
-		catch (Throwable ex) {
+		} catch (Throwable ex) {
 			if (txObject.isNewConnectionHolder()) {
 				DataSourceUtils.releaseConnection(con, this.dataSource);
 				txObject.setConnectionHolder(null, false);
@@ -388,20 +385,16 @@ public class DataSourceTransactionManager extends AbstractPlatformTransactionMan
 	 * @since 4.3.7
 	 * @see #setEnforceReadOnly
 	 */
-	protected void prepareTransactionalConnection(Connection con, TransactionDefinition definition)
-			throws SQLException {
-
+	protected void prepareTransactionalConnection(Connection con, TransactionDefinition definition) throws SQLException {
 		if (isEnforceReadOnly() && definition.isReadOnly()) {
 			Statement stmt = con.createStatement();
 			try {
 				stmt.executeUpdate("SET TRANSACTION READ ONLY");
-			}
-			finally {
+			} finally {
 				stmt.close();
 			}
 		}
 	}
-
 
 	/**
 	 * DataSource transaction object, representing a ConnectionHolder.

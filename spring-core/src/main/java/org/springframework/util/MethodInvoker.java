@@ -145,10 +145,9 @@ public class MethodInvoker {
 			int lastDotIndex = this.staticMethod.lastIndexOf('.');
 			if (lastDotIndex == -1 || lastDotIndex == this.staticMethod.length()) {
 				throw new IllegalArgumentException(
-						"staticMethod must be a fully qualified class plus method name: " +
-						"e.g. 'example.MyExampleClass.myExampleMethod'");
+					"staticMethod must be a fully qualified class plus method name: e.g. 'example.MyExampleClass.myExampleMethod'");
 			}
-			String className = this.staticMethod.substring(0, lastDotIndex);
+			String  className = this.staticMethod.substring(0, lastDotIndex);
 			String methodName = this.staticMethod.substring(lastDotIndex + 1);
 			this.targetClass = resolveClassName(className);
 			this.targetMethod = methodName;
@@ -299,12 +298,10 @@ public class MethodInvoker {
 					if (paramType.equals(superClass)) {
 						result = result + 2;
 						superClass = null;
-					}
-					else if (ClassUtils.isAssignable(paramType, superClass)) {
+					} else if (ClassUtils.isAssignable(paramType, superClass)) {
 						result = result + 2;
 						superClass = superClass.getSuperclass();
-					}
-					else {
+					} else {
 						superClass = null;
 					}
 				}

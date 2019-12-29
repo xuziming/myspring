@@ -141,9 +141,7 @@ public abstract class DataSourceUtils {
 	 * @throws SQLException if thrown by JDBC methods
 	 * @see #resetConnectionAfterTransaction
 	 */
-	public static Integer prepareConnectionForTransaction(Connection con, TransactionDefinition definition)
-			throws SQLException {
-
+	public static Integer prepareConnectionForTransaction(Connection con, TransactionDefinition definition) throws SQLException {
 		Assert.notNull(con, "No Connection specified");
 
 		// Set read-only flag.
@@ -153,8 +151,7 @@ public abstract class DataSourceUtils {
 					logger.debug("Setting JDBC Connection [" + con + "] read-only");
 				}
 				con.setReadOnly(true);
-			}
-			catch (SQLException ex) {
+			} catch (SQLException ex) {
 				Throwable exToCheck = ex;
 				while (exToCheck != null) {
 					if (exToCheck.getClass().getSimpleName().contains("Timeout")) {
@@ -165,8 +162,7 @@ public abstract class DataSourceUtils {
 				}
 				// "read-only not supported" SQLException -> ignore, it's just a hint anyway
 				logger.debug("Could not set JDBC Connection read-only", ex);
-			}
-			catch (RuntimeException ex) {
+			} catch (RuntimeException ex) {
 				Throwable exToCheck = ex;
 				while (exToCheck != null) {
 					if (exToCheck.getClass().getSimpleName().contains("Timeout")) {
@@ -184,8 +180,7 @@ public abstract class DataSourceUtils {
 		Integer previousIsolationLevel = null;
 		if (definition != null && definition.getIsolationLevel() != TransactionDefinition.ISOLATION_DEFAULT) {
 			if (logger.isDebugEnabled()) {
-				logger.debug("Changing isolation level of JDBC Connection [" + con + "] to " +
-						definition.getIsolationLevel());
+				logger.debug("Changing isolation level of JDBC Connection [" + con + "] to " + definition.getIsolationLevel());
 			}
 			int currentIsolation = con.getTransactionIsolation();
 			if (currentIsolation != definition.getIsolationLevel()) {
@@ -429,12 +424,16 @@ public abstract class DataSourceUtils {
 		@Override
 		public void suspend() {
 			if (this.holderActive) {
+				// 解绑当前线程中的数据源
 				TransactionSynchronizationManager.unbindResource(this.dataSource);
+				// 如果存在连接，且处于打开状态
 				if (this.connectionHolder.hasConnection() && !this.connectionHolder.isOpen()) {
 					// Release Connection on suspend if the application doesn't keep
 					// a handle to it anymore. We will fetch a fresh Connection if the
 					// application accesses the ConnectionHolder again after resume,
 					// assuming that it will participate in the same transaction.
+					// 当挂起的时候如果没有句柄连接到该connection，将释放该连接
+                    // 当resume的时候 会重开打开一个连接参与到原来的事务中
 					releaseConnection(this.connectionHolder.getConnection(), this.dataSource);
 					this.connectionHolder.setConnection(null);
 				}

@@ -190,8 +190,7 @@ public abstract class TransactionSynchronizationManager {
 					actualKey + "] bound to thread [" + Thread.currentThread().getName() + "]");
 		}
 		if (logger.isTraceEnabled()) {
-			logger.trace("Bound value [" + value + "] for key [" + actualKey + "] to thread [" +
-					Thread.currentThread().getName() + "]");
+			logger.trace("Bound value [" + value + "] for key [" + actualKey + "] to thread [" + Thread.currentThread().getName() + "]");
 		}
 	}
 

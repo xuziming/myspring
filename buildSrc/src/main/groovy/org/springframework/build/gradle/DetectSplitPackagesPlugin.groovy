@@ -154,5 +154,5 @@ public class DetectSplitPackagesTask extends DefaultTask {
 			findPackages(packages, dir, packagePath + File.separator + subDir.name)
 		}
 	}
-}
 
+}

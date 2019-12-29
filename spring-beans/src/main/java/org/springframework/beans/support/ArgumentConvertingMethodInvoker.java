@@ -43,7 +43,6 @@ public class ArgumentConvertingMethodInvoker extends MethodInvoker {
 
 	private boolean useDefaultConverter = true;
 
-
 	/**
 	 * Set a TypeConverter to use for argument type conversion.
 	 * <p>Default is a {@link org.springframework.beans.SimpleTypeConverter}.
@@ -95,12 +94,10 @@ public class ArgumentConvertingMethodInvoker extends MethodInvoker {
 	public void registerCustomEditor(Class<?> requiredType, PropertyEditor propertyEditor) {
 		TypeConverter converter = getTypeConverter();
 		if (!(converter instanceof PropertyEditorRegistry)) {
-			throw new IllegalStateException(
-					"TypeConverter does not implement PropertyEditorRegistry interface: " + converter);
+			throw new IllegalStateException("TypeConverter does not implement PropertyEditorRegistry interface: " + converter);
 		}
 		((PropertyEditorRegistry) converter).registerCustomEditor(requiredType, propertyEditor);
 	}
-
 
 	/**
 	 * This implementation looks for a method with matching parameter types.
@@ -136,6 +133,7 @@ public class ArgumentConvertingMethodInvoker extends MethodInvoker {
 			Method[] candidates = ReflectionUtils.getAllDeclaredMethods(getTargetClass());
 			int minTypeDiffWeight = Integer.MAX_VALUE;
 			Object[] argumentsToUse = null;
+
 			for (Method candidate : candidates) {
 				if (candidate.getName().equals(targetMethod)) {
 					// Check if the inspected method has the correct number of parameters.
@@ -147,8 +145,7 @@ public class ArgumentConvertingMethodInvoker extends MethodInvoker {
 							// Verify that the supplied argument is assignable to the method parameter.
 							try {
 								convertedArguments[j] = converter.convertIfNecessary(arguments[j], paramTypes[j]);
-							}
-							catch (TypeMismatchException ex) {
+							} catch (TypeMismatchException ex) {
 								// Ignore -> simply doesn't match.
 								match = false;
 							}
@@ -164,6 +161,7 @@ public class ArgumentConvertingMethodInvoker extends MethodInvoker {
 					}
 				}
 			}
+
 			if (matchingMethod != null) {
 				setArguments(argumentsToUse);
 				return matchingMethod;
